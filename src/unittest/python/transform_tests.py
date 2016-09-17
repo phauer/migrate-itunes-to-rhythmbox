@@ -39,6 +39,11 @@ class LocationTransformTests(unittest.TestCase):
         transformed_location = self.transform_fixed_replacement("D:/Music/Bla/`´ß+.mp3")
         self.assertEqual(transformed_location, "file:///home/pha/Music/Bla/%60%C2%B4%C3%9F+.mp3")
 
+    def test_transform_comma(self):
+        transformed_location = self.transform_fixed_replacement("D:/Music/Alligatoah/06. Mama, Kannst Du Mich Abholen I.mp3")
+        self.assertEqual(transformed_location, "file:///home/pha/Music/Alligatoah/06.%20Mama,%20Kannst%20Du%20Mich%20Abholen%20I.mp3")
+
+
 if __name__ == '__main__':
     unittest.main()
 
