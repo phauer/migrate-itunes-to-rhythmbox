@@ -31,9 +31,10 @@ Usage: migrate-itunes-to-rhythmbox [OPTIONS]
   Moreover, it replaces the root path of your library.
 
 Options:
-  --itunes_library_xml TEXT       Path to the source 'iTunes Library.xml'. Can
-                                  be exported in iTunes with 'File > Library >
-                                  Export Library'
+  --itunes_library_xml TEXT       Path to the source iTunes library xml
+                                  (iTunes Library.xml or iTunes Music
+                                  Library.xml). Can be exported in iTunes with
+                                  'File > Library > Export Library'
   --rhythmbox_playlists_xml TEXT  Target Path for the created Rhythmbox
                                   playlist.xml'
   --source_library_root TEXT      Root path path of the iTunes-based library.
@@ -51,10 +52,10 @@ Examples:
 $ migrate-itunes-to-rhythmbox --help
 
 # places the created rhythmbox to "~/.local/share/rhythmbox/playlists.xml"
-$ migrate-itunes-to-rhythmbox --itunes_library_xml="~/Music/iTunes-Playground/Mediathek.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
+$ migrate-itunes-to-rhythmbox --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
 
 # define rhythmbox_playlists_xml explicitly
-$ migrate-itunes-to-rhythmbox --itunes_library_xml="~/Music/iTunes-Playground/Mediathek.xml" --rhythmbox_playlists_xml="~/.local/share/rhythmbox/playlists.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
+$ migrate-itunes-to-rhythmbox --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" --rhythmbox_playlists_xml="~/.local/share/rhythmbox/playlists.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
 
 # relative paths. "iTunes Library.xml" is in current directory and "rhythmbox-playlists.xml" will also placed there.
 $ migrate-itunes-to-rhythmbox --itunes_library_xml="iTunes Library.xml" --rhythmbox_playlists_xml="rhythmbox-playlists.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"

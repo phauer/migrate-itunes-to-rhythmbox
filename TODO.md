@@ -11,3 +11,4 @@
 - what about `´¸ß+ -> win
 - README "install and usage" via pip install <path to uploaded tar.gz on github>
 - whats the click path: File > Library > Export Library?
+- migrate count and ratings

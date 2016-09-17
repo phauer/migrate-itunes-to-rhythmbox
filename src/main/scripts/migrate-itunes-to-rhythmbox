@@ -4,7 +4,7 @@ import click
 from path import Path
 from migrate_itunes_to_rhythmbox import itunes_library_reader, rhythmbox_playlists_writer
 
-itunes_library_xml_help = "Path to the source 'iTunes Library.xml'. Can be exported in iTunes with 'File > Library > Export Library'"
+itunes_library_xml_help = "Path to the source iTunes library xml (iTunes Library.xml or iTunes Music Library.xml). Can be exported in iTunes with 'File > Library > Export Library'"
 rhythmbox_playlists_xml_help = "Target Path for the created Rhythmbox playlist.xml'"
 source_library_root_help = "Root path path of the iTunes-based library. Will be replaced with <target_library_root>"
 target_library_root_help = "Root path path of the Rhythmbox-based library. Replaces the value of <source_library_root>"
