@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<rhythmdb-playlists>
+  <playlist name="My Top Rated" show-browser="true" browser-position="231" search-type="search-match" type="automatic" sort-key="Rating" sort-direction="1">
+    <conjunction>
+      <equals prop="type">song</equals>
+      <subquery>
+        <conjunction>
+          <greater prop="rating">4,000000</greater>
+        </conjunction>
+      </subquery>
+    </conjunction>
+  </playlist>
+  <playlist name="Recently Added" show-browser="true" browser-position="231" search-type="search-match" type="automatic" sort-key="FirstSeen" sort-direction="1">
+    <conjunction>
+      <equals prop="type">song</equals>
+      <subquery>
+        <conjunction>
+          <current-time-within prop="first-seen">604800</current-time-within>
+        </conjunction>
+      </subquery>
+    </conjunction>
+  </playlist>
+  <playlist name="Recently Played" show-browser="true" browser-position="231" search-type="search-match" type="automatic" sort-key="LastPlayed" sort-direction="1">
+    <conjunction>
+      <equals prop="type">song</equals>
+      <subquery>
+        <conjunction>
+          <current-time-within prop="last-played">604800</current-time-within>
+        </conjunction>
+      </subquery>
+    </conjunction>
+  </playlist>
+  <playlist name="MyPlaylist" show-browser="true" browser-position="231" search-type="search-match" type="static">
+    <location>file:///home/pha/Music/Die%20Orsons/What's%20goes%20(2015)/17.%20Das%20%C3%96l.mp3</location>
+    <location>file:///home/pha/Music/Grossstadtgel%C3%BCster/Oh%20Ein%20Reh%20(2013)/02_grossstadtgefluester_-__konfetti_und_yeah.mp3</location>
+    <location>file:///home/pha/Music/In%20Extremo/S%C3%BCnder%20ohne%20Z%C3%BCgel/11.%C3%93skasteinar.mp3</location>
+    <location>file:///home/pha/Music/Irie%20Revoltes/Irie%20Revoltes%202015/07.%20Irie%20R%C3%A9volt%C3%A9s%20-%20%C3%80%20tout%20prix.mp3</location>
+    <location>file:///home/pha/Music/Macklemore%20&amp;%20Ryan%20Lewis/The%20Heist%20(2012)/02.%20Macklemore%20&amp;%20Ryan%20Lewis%20Feat.%20Ray%20Dalton%20-%20Can't%20Hold%20Us.mp3</location>
+    <location>file:///home/pha/Music/Mumford%20&amp;%20Sons/Babel%20(2012)/03.%20I%20Will%20Wait.mp3</location>
+    <location>file:///home/pha/Music/%5B%5D()%7B%7D&amp;'!%3B%23.mp3</location>
+    <location>file:///home/pha/Music/Sum%2041/Screaming%20Bloody%20Murder%20(2011)/05-Sum%2041%20-%20Jessica%20Kill.mp3</location>
+    <location>file:///home/pha/Music/Von%20Wegen%20Lisbeth/Grande%20(2016)/02.%20Ch%C3%A9rie.mp3</location>
+    <location>file:///home/pha/Music/%C2%A7$%25=~%C2%B0%5E.mp3</location>
+  </playlist>
+  <playlist name="Play Queue" show-browser="false" browser-position="180" search-type="search-match" type="queue"/>
+</rhythmdb-playlists>

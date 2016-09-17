@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+from os.path import expanduser
+import click
+from path import Path
+from migrate_itunes_to_rhythmbox import itunes_library_reader, rhythmbox_playlists_writer
+
+itunes_library_xml_help = "Path to the source 'iTunes Library.xml'. Can be exported in iTunes with 'File > Library > Export Library'"
+rhythmbox_playlists_xml_help = "Target Path for the created Rhythmbox playlist.xml'"
+source_library_root_help = "Root path path of the iTunes-based library. Will be replaced with <target_library_root>"
+target_library_root_help = "Root path path of the Rhythmbox-based library. Replaces the value of <source_library_root>"
+
+
+@click.command(help="Reads the playlists from iTunes and converts them to Rhythmbox' format. Moreover, it replaces the root path of your library.")
+@click.option('--itunes_library_xml', prompt=itunes_library_xml_help, help=itunes_library_xml_help)
+@click.option('--rhythmbox_playlists_xml', default=expanduser("~/.local/share/rhythmbox/playlists.xml"),
+              prompt=rhythmbox_playlists_xml_help, help=rhythmbox_playlists_xml_help)
+@click.option('--source_library_root', prompt=source_library_root_help, help=source_library_root_help)
+@click.option('--target_library_root', default=expanduser("~/Music"), prompt=target_library_root_help, help=target_library_root_help)
+def migrate_playlist(itunes_library_xml: str, rhythmbox_playlists_xml: str, source_library_root: str, target_library_root: str):
+    try:
+        expanded_rhythmbox_playlists_xml = expanduser(rhythmbox_playlists_xml)
+        expanded_rhythmbox_playlists_xml_path = Path(expanded_rhythmbox_playlists_xml)
+        expanded_itunes_library_xml = expanduser(itunes_library_xml)
+
+        print("Reading iTunes library in {}".format(expanded_itunes_library_xml))
+        playlists = itunes_library_reader.read_playlists(expanded_itunes_library_xml)
+
+        print("Creating Rhythmbox playlist in {}".format(expanded_rhythmbox_playlists_xml))
+        rhythmbox_playlists_writer.write(playlists=playlists,
+                                         target_path=expanded_rhythmbox_playlists_xml_path,
+                                         source_library_root=source_library_root,
+                                         target_library_root=target_library_root)
+        print("Finished")
+    except (IOError, ValueError) as e:
+        print("An Error occurred. {}".format(e))
+
+if __name__ == '__main__':
+    migrate_playlist()
+

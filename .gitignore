@@ -1,0 +1,7 @@
+.idea
+venv/
+target/
+out/
+__pycache__/
+*.pyc
+.pybuild
