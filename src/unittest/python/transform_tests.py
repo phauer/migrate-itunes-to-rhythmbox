@@ -1,11 +1,12 @@
 import unittest
-from migrate_itunes_to_rhythmbox import rhythmbox_playlists_writer
+from migrate_itunes_to_rhythmbox import transform
 
 
+# these tests are no longer necessary, because the tested method is not used anymore.
 class LocationTransformTests(unittest.TestCase):
     @staticmethod
     def transform_fixed_replacement(location: str):
-        return rhythmbox_playlists_writer.transform(
+        return transform.transform_to_rhythmbox_path_old(
             location=location, source_library_root="D:/Music/", target_library_root="/home/pha/Music/")
 
     def test_transform(self):

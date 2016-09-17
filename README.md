@@ -32,7 +32,7 @@ Options:
   --itunes_library_xml TEXT       Path to the source iTunes library xml
                                   (iTunes Library.xml or iTunes Music
                                   Library.xml). Can be exported in iTunes with
-                                  'File > Library > Export Library'
+                                  'File > Library > Export Library...'
   --rhythmbox_playlists_xml TEXT  Target Path for the created Rhythmbox
                                   playlist.xml'
   --source_library_root TEXT      Root path path of the iTunes-based library.
@@ -40,6 +40,11 @@ Options:
   --target_library_root TEXT      Root path path of the Rhythmbox-based
                                   library. Replaces the value of
                                   <source_library_root>
+  --exclude_playlist_folders BOOLEAN
+                                  Exclude playlist folders. Otherwise you will
+                                  have the sub playlists AND a playlist for
+                                  the folder containing also all tracks from
+                                  the sub playlists.
   --help                          Show this message and exit.
 ```
 

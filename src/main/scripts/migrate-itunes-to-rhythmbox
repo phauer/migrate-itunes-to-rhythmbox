@@ -16,7 +16,12 @@ target_library_root_help = "Root path path of the Rhythmbox-based library. Repla
               prompt=rhythmbox_playlists_xml_help, help=rhythmbox_playlists_xml_help)
 @click.option('--source_library_root', prompt=source_library_root_help, help=source_library_root_help)
 @click.option('--target_library_root', default=expanduser("~/Music"), prompt=target_library_root_help, help=target_library_root_help)
-def migrate_playlist(itunes_library_xml: str, rhythmbox_playlists_xml: str, source_library_root: str, target_library_root: str):
+@click.option('--exclude_playlist_folders', type=click.BOOL, default=True, help="Exclude playlist folders. Otherwise you will have the sub playlists AND a playlist for the folder containing also all tracks from the sub playlists.")
+def migrate_playlist(itunes_library_xml: str,
+                     rhythmbox_playlists_xml: str,
+                     source_library_root: str,
+                     target_library_root: str,
+                     exclude_playlist_folders: bool):
     try:
         expanded_rhythmbox_playlists_xml = expanduser(rhythmbox_playlists_xml)
         expanded_rhythmbox_playlists_xml_path = Path(expanded_rhythmbox_playlists_xml)
@@ -29,7 +34,8 @@ def migrate_playlist(itunes_library_xml: str, rhythmbox_playlists_xml: str, sour
         rhythmbox_playlists_writer.write(playlists=playlists,
                                          target_path=expanded_rhythmbox_playlists_xml_path,
                                          source_library_root=source_library_root,
-                                         target_library_root=target_library_root)
+                                         target_library_root=target_library_root,
+                                         exclude_playlist_folders=exclude_playlist_folders)
         print("Finished")
     except (IOError, ValueError) as e:
         print("An Error occurred. {}".format(e))

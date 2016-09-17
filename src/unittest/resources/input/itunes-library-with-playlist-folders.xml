@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Major Version</key><integer>1</integer>
+	<key>Minor Version</key><integer>1</integer>
+	<key>Date</key><date>2016-09-17T17:48:00Z</date>
+	<key>Application Version</key><string>12.5.1.21</string>
+	<key>Features</key><integer>5</integer>
+	<key>Show Content Ratings</key><true/>
+	<key>Music Folder</key><string>file://localhost/D:/Music/iTunes-Playground/iTunes%20Media/</string>
+	<key>Library Persistent ID</key><string>BA52EC49A8296F4C</string>
+	<key>Tracks</key>
+	<dict>
+		<key>91</key>
+		<dict>
+			<key>Track ID</key><integer>91</integer>
+			<key>Name</key><string>[](){}&#38;'!;#</string>
+			<key>Artist</key><string>Special Characters</string>
+			<key>Album</key><string>Konk</string>
+			<key>Genre</key><string>Blues</string>
+			<key>Kind</key><string>MPEG-Audiodatei</string>
+			<key>Size</key><integer>5769536</integer>
+			<key>Total Time</key><integer>240300</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>12</integer>
+			<key>Year</key><integer>2008</integer>
+			<key>Date Modified</key><date>2016-09-16T17:51:37Z</date>
+			<key>Date Added</key><date>2016-09-16T17:51:00Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Persistent ID</key><string>83CED0519117C568</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/D:/Music/%5B%5D()%7B%7D&#38;'!%3B%23.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>93</key>
+		<dict>
+			<key>Track ID</key><integer>93</integer>
+			<key>Name</key><string>Jessica Kill</string>
+			<key>Artist</key><string>Sum 41</string>
+			<key>Album</key><string>Screaming Bloody Murder</string>
+			<key>Genre</key><string>Punk Rock</string>
+			<key>Kind</key><string>MPEG-Audiodatei</string>
+			<key>Size</key><integer>6885233</integer>
+			<key>Total Time</key><integer>170266</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Year</key><integer>2011</integer>
+			<key>Date Modified</key><date>2011-04-04T07:05:49Z</date>
+			<key>Date Added</key><date>2016-09-16T17:52:15Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>A56347524E0B71CA</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/D:/Music/Sum%2041/Screaming%20Bloody%20Murder%20(2011)/05-Sum%2041%20-%20Jessica%20Kill.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>95</key>
+		<dict>
+			<key>Track ID</key><integer>95</integer>
+			<key>Name</key><string>Can't Hold Us</string>
+			<key>Artist</key><string>Macklemore &#38; Ryan Lewis</string>
+			<key>Album</key><string>The Heist</string>
+			<key>Kind</key><string>MPEG-Audiodatei</string>
+			<key>Size</key><integer>10420845</integer>
+			<key>Total Time</key><integer>258481</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>18</integer>
+			<key>Year</key><integer>2012</integer>
+			<key>Date Modified</key><date>2013-04-02T17:47:35Z</date>
+			<key>Date Added</key><date>2016-09-16T17:52:26Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Heist</string>
+			<key>Persistent ID</key><string>E1122DEF50DBADFA</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/D:/Music/Macklemore%20&#38;%20Ryan%20Lewis/The%20Heist%20(2012)/02.%20Macklemore%20&#38;%20Ryan%20Lewis%20Feat.%20Ray%20Dalton%20-%20Can't%20Hold%20Us.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>97</key>
+		<dict>
+			<key>Track ID</key><integer>97</integer>
+			<key>Name</key><string>I Will Wait</string>
+			<key>Artist</key><string>Mumford &#38; Sons</string>
+			<key>Album</key><string>Babel</string>
+			<key>Genre</key><string>Rock</string>
+			<key>Kind</key><string>MPEG-Audiodatei</string>
+			<key>Size</key><integer>11106597</integer>
+			<key>Total Time</key><integer>276793</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Year</key><integer>2012</integer>
+			<key>Date Modified</key><date>2012-12-12T15:49:19Z</date>
+			<key>Date Added</key><date>2016-09-16T17:52:48Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>C1D9F02D15EB0B39</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/D:/Music/Mumford%20&#38;%20Sons/Babel%20(2012)/03.%20I%20Will%20Wait.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>99</key>
+		<dict>
+			<key>Track ID</key><integer>99</integer>
+			<key>Name</key><string>Das Öl</string>
+			<key>Artist</key><string>Die Orsons</string>
+			<key>Album</key><string>What's Goes?</string>
+			<key>Genre</key><string>Hip-Hop</string>
+			<key>Kind</key><string>MPEG-Audiodatei</string>
+			<key>Size</key><integer>8604098</integer>
+			<key>Total Time</key><integer>214334</integer>
+			<key>Track Number</key><integer>17</integer>
+			<key>Track Count</key><integer>17</integer>
+			<key>Year</key><integer>2015</integer>
+			<key>Date Modified</key><date>2015-03-19T13:11:12Z</date>
+			<key>Date Added</key><date>2016-09-16T17:53:04Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>CAECCA6203D97BE8</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/D:/Music/Die%20Orsons/What's%20goes%20(2015)/17.%20Das%20%C3%96l.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>101</key>
+		<dict>
+			<key>Track ID</key><integer>101</integer>
+			<key>Name</key><string>Konfetti Und Yeah</string>
+			<key>Artist</key><string>Grossstadtgeflüster</string>
+			<key>Album</key><string>Oh, Ein Reh!</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>MPEG-Audiodatei</string>
+			<key>Size</key><integer>7246711</integer>
+			<key>Total Time</key><integer>223242</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2013</integer>
+			<key>Date Modified</key><date>2013-06-13T18:57:39Z</date>
+			<key>Date Added</key><date>2016-09-16T17:53:32Z</date>
+			<key>Bit Rate</key><integer>258</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>.</string>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>954AD4F37E2F70D6</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/D:/Music/Grossstadtgel%C3%BCster/Oh%20Ein%20Reh%20(2013)/02_grossstadtgefluester_-__konfetti_und_yeah.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>103</key>
+		<dict>
+			<key>Track ID</key><integer>103</integer>
+			<key>Name</key><string>Chérie</string>
+			<key>Artist</key><string>Von Wegen Lisbeth</string>
+			<key>Album Artist</key><string>Von Wegen Lisbeth</string>
+			<key>Album</key><string>Grande</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>MPEG-Audiodatei</string>
+			<key>Size</key><integer>7166830</integer>
+			<key>Total Time</key><integer>178207</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2016</integer>
+			<key>Date Modified</key><date>2016-07-14T13:17:25Z</date>
+			<key>Date Added</key><date>2016-09-16T17:54:02Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>F7EFDE31EEB3F39B</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/D:/Music/Von%20Wegen%20Lisbeth/Grande%20(2016)/02.%20Ch%C3%A9rie.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>105</key>
+		<dict>
+			<key>Track ID</key><integer>105</integer>
+			<key>Name</key><string>À tout prix</string>
+			<key>Artist</key><string>Irie Révoltés</string>
+			<key>Album Artist</key><string>Irie Révoltés</string>
+			<key>Album</key><string>Irie Révoltés</string>
+			<key>Genre</key><string>Deutsch Rap/Hip-Hop/Pop/Reggae/Dancehall</string>
+			<key>Kind</key><string>MPEG-Audiodatei</string>
+			<key>Size</key><integer>8255916</integer>
+			<key>Total Time</key><integer>204434</integer>
+			<key>Track Number</key><integer>7</integer>
+			<key>Year</key><integer>2015</integer>
+			<key>Date Modified</key><date>2015-06-18T14:16:38Z</date>
+			<key>Date Added</key><date>2016-09-16T17:54:27Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>E4F4C7EECE100617</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/D:/Music/Irie%20Revoltes/Irie%20Revoltes%202015/07.%20Irie%20R%C3%A9volt%C3%A9s%20-%20%C3%80%20tout%20prix.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>107</key>
+		<dict>
+			<key>Track ID</key><integer>107</integer>
+			<key>Name</key><string>11.Óskasteinar</string>
+			<key>Artist</key><string>In Extremo</string>
+			<key>Album</key><string>Sünder ohne Zügel</string>
+			<key>Genre</key><string>Mittelaltermetal</string>
+			<key>Kind</key><string>MPEG-Audiodatei</string>
+			<key>Size</key><integer>4960256</integer>
+			<key>Total Time</key><integer>206602</integer>
+			<key>Track Number</key><integer>11</integer>
+			<key>Date Modified</key><date>2006-02-23T15:48:05Z</date>
+			<key>Date Added</key><date>2016-09-16T17:55:06Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Persistent ID</key><string>39F7D71C6C64E5FD</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/D:/Music/In%20Extremo/S%C3%BCnder%20ohne%20Z%C3%BCgel/11.%C3%93skasteinar.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>109</key>
+		<dict>
+			<key>Track ID</key><integer>109</integer>
+			<key>Name</key><string>§$%=~°^</string>
+			<key>Artist</key><string>Special Characters</string>
+			<key>Album</key><string>Konk</string>
+			<key>Genre</key><string>Blues</string>
+			<key>Kind</key><string>MPEG-Audiodatei</string>
+			<key>Size</key><integer>5769536</integer>
+			<key>Total Time</key><integer>240300</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>12</integer>
+			<key>Year</key><integer>2008</integer>
+			<key>Date Modified</key><date>2016-09-17T04:15:34Z</date>
+			<key>Date Added</key><date>2016-09-17T04:16:03Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Persistent ID</key><string>F84261129B9AABD3</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/D:/Music/%C2%A7$%25=~%C2%B0%5E.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>111</key>
+		<dict>
+			<key>Track ID</key><integer>111</integer>
+			<key>Name</key><string>`´ß+</string>
+			<key>Artist</key><string>Special Characters</string>
+			<key>Album</key><string>Konk</string>
+			<key>Genre</key><string>Blues</string>
+			<key>Kind</key><string>MPEG-Audiodatei</string>
+			<key>Size</key><integer>5769536</integer>
+			<key>Total Time</key><integer>240300</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>12</integer>
+			<key>Year</key><integer>2008</integer>
+			<key>Date Modified</key><date>2016-09-17T07:53:57Z</date>
+			<key>Date Added</key><date>2016-09-17T07:54:21Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Persistent ID</key><string>9ECEBDB9C06B42EF</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/D:/Music/%60%C2%B4%C3%9F+.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>113</key>
+		<dict>
+			<key>Track ID</key><integer>113</integer>
+			<key>Name</key><string>Mama, Kannst Du Mich Abholen I</string>
+			<key>Artist</key><string>Alligatoah</string>
+			<key>Album</key><string>Musik ist keine Lösung</string>
+			<key>Genre</key><string>Hip-Hop</string>
+			<key>Kind</key><string>MPEG-Audiodatei</string>
+			<key>Size</key><integer>4560281</integer>
+			<key>Total Time</key><integer>95895</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Year</key><integer>2015</integer>
+			<key>Date Modified</key><date>2015-11-26T15:57:08Z</date>
+			<key>Date Added</key><date>2016-09-17T12:01:06Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>27854F523BDA8817</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/D:/Music/Alligatoah/Musik%20ist%20keine%20L%C3%B6sung%20(Limitierte%20Fanbox)%20(2015)/CD%201%20Musik%20ist%20keine%20L%C3%B6sung/06.%20Mama,%20Kannst%20Du%20Mich%20Abholen%20I.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+	</dict>
+	<key>Playlists</key>
+	<array>
+		<dict>
+			<key>Name</key><string>Mediathek</string>
+			<key>Description</key><string></string>
+			<key>Master</key><true/>
+			<key>Playlist ID</key><integer>115</integer>
+			<key>Playlist Persistent ID</key><string>DD991EFC5490605F</string>
+			<key>Visible</key><false/>
+			<key>All Items</key><true/>
+			<key>Playlist Items</key>
+			<array>
+				<dict>
+					<key>Track ID</key><integer>91</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>93</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>95</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>97</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>99</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>101</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>103</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>105</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>107</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>109</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>111</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>113</integer>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key><string>Musik</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>130</integer>
+			<key>Playlist Persistent ID</key><string>C76079FF1F96DEFD</string>
+			<key>Distinguished Kind</key><integer>4</integer>
+			<key>Music</key><true/>
+			<key>All Items</key><true/>
+			<key>Playlist Items</key>
+			<array>
+				<dict>
+					<key>Track ID</key><integer>91</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>93</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>95</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>97</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>99</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>101</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>103</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>105</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>107</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>109</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>111</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>113</integer>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key><string>Filme</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>151</integer>
+			<key>Playlist Persistent ID</key><string>5C5759F25E61BEC8</string>
+			<key>Distinguished Kind</key><integer>2</integer>
+			<key>Movies</key><true/>
+			<key>All Items</key><true/>
+		</dict>
+		<dict>
+			<key>Name</key><string>TV-Sendungen</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>157</integer>
+			<key>Playlist Persistent ID</key><string>1E2E302F812FD9DD</string>
+			<key>Distinguished Kind</key><integer>3</integer>
+			<key>TV Shows</key><true/>
+			<key>All Items</key><true/>
+		</dict>
+		<dict>
+			<key>Name</key><string>Podcasts</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>160</integer>
+			<key>Playlist Persistent ID</key><string>754D98C3C819F6D5</string>
+			<key>Distinguished Kind</key><integer>10</integer>
+			<key>Podcasts</key><true/>
+			<key>All Items</key><true/>
+		</dict>
+		<dict>
+			<key>Name</key><string>iTunes U</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>167</integer>
+			<key>Playlist Persistent ID</key><string>3493D9B54640B77F</string>
+			<key>Distinguished Kind</key><integer>31</integer>
+			<key>iTunesU</key><true/>
+			<key>All Items</key><true/>
+		</dict>
+		<dict>
+			<key>Name</key><string>Bücher</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>170</integer>
+			<key>Playlist Persistent ID</key><string>69E163B8DE406D6F</string>
+			<key>Distinguished Kind</key><integer>5</integer>
+			<key>Audiobooks</key><true/>
+			<key>Books</key><true/>
+			<key>All Items</key><true/>
+		</dict>
+		<dict>
+			<key>Name</key><string>Töne</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>182</integer>
+			<key>Playlist Persistent ID</key><string>1EBACA61CAC61307</string>
+			<key>Distinguished Kind</key><integer>6</integer>
+			<key>All Items</key><true/>
+		</dict>
+		<dict>
+			<key>Name</key><string>Genius</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>185</integer>
+			<key>Playlist Persistent ID</key><string>1BD7C1F667B60CDA</string>
+			<key>Distinguished Kind</key><integer>26</integer>
+			<key>All Items</key><true/>
+		</dict>
+		<dict>
+			<key>Name</key><string>PlaylistFolder</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>322</integer>
+			<key>Playlist Persistent ID</key><string>B562B87AF2236EEF</string>
+			<key>All Items</key><true/>
+			<key>Folder</key><true/>
+			<key>Playlist Items</key>
+			<array>
+				<dict>
+					<key>Track ID</key><integer>101</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>97</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>95</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>99</integer>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key><string>PlaylistInFolder</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>325</integer>
+			<key>Playlist Persistent ID</key><string>ECB0637D74D58714</string>
+			<key>Parent Persistent ID</key><string>B562B87AF2236EEF</string>
+			<key>All Items</key><true/>
+			<key>Playlist Items</key>
+			<array>
+				<dict>
+					<key>Track ID</key><integer>101</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>97</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>95</integer>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key><string>PlaylistInFolder2</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>347</integer>
+			<key>Playlist Persistent ID</key><string>6DEA3D0FDF35D156</string>
+			<key>Parent Persistent ID</key><string>B562B87AF2236EEF</string>
+			<key>All Items</key><true/>
+			<key>Playlist Items</key>
+			<array>
+				<dict>
+					<key>Track ID</key><integer>97</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>99</integer>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key><string>Klassische Musik</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>188</integer>
+			<key>Playlist Persistent ID</key><string>D0F0CDB7980B3898</string>
+			<key>Distinguished Kind</key><integer>206</integer>
+			<key>All Items</key><true/>
+			<key>Smart Info</key>
+			<data>
+			AQEAAwAAAAIAAAAZAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAA==
+			</data>
+			<key>Smart Criteria</key>
+			<data>
+			U0xzdAABAAEAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAU0xzdAABAAEAAAACAAAAAQAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAADwAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAABEAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAB
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAg
+			AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVxTTHN0AAEAAQAAABEAAAAB
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAACAEAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAABIAQwBsAGEAcwBzAGkAYwBhAGwAAAAIAQAAAQAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEABLAGwAYQBzAHMAaQBlAGsAAAAI
+			AQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgBD
+			AGwAYQBzAHMAaQBxAHUAZQAAAAgBAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAOAEsAbABhAHMAcwBpAGsAAAAIAQAAAQAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEABDAGwAYQBzAHMAaQBjAGEAAAAI
+			AQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACjCv
+			MOkwtzDDMK8AAAAIAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAADgBDAGwA4QBzAGkAYwBhAAAACAEAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAASwBsAGEAcwBzAGkAcwBrAAAACAEAAAEAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAQwBsAOEAcwBz
+			AGkAYwBhAAAACAEAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAABIASwBsAGEAcwBzAGkAcwBrAHQAAAAIAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAQaBDsEMARBBEEEOARHBDUEQQQ6BDAETwAA
+			AAgBAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS
+			AEsAbABhAHMAeQBjAHoAbgBhAAAACAEAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAABIASwBsAGEAcwBzAGkAbgBlAG4AAAAIAQAAAQAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADABLAGwAYQBzAGkAawAA
+			AAgBAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU
+			AEsAbABhAHMAcwB6AGkAawB1AHMAAAAIAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAFgBWAOEBfgBuAOEAIABoAHUAZABiAGEAAAAIAQAAAQAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgZDBkQGJwYz
+			BkoGQwZK
+			</data>
+		</dict>
+		<dict>
+			<key>Name</key><string>Meine Lieblingstitel</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>191</integer>
+			<key>Playlist Persistent ID</key><string>B99F85CD39DE0772</string>
+			<key>Distinguished Kind</key><integer>201</integer>
+			<key>All Items</key><true/>
+			<key>Smart Info</key>
+			<data>
+			AQEAAwAAAAIAAAAZAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAA==
+			</data>
+			<key>Smart Criteria</key>
+			<data>
+			U0xzdAABAAEAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABkAAAAQAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAB
+			AAAAAAAAADwAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+			</data>
+		</dict>
+		<dict>
+			<key>Name</key><string>Meine Top 25</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>194</integer>
+			<key>Playlist Persistent ID</key><string>9F4561A07A5C288F</string>
+			<key>Distinguished Kind</key><integer>202</integer>
+			<key>All Items</key><true/>
+			<key>Smart Info</key>
+			<data>
+			AQEBAwAAABkAAAAZAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAA==
+			</data>
+			<key>Smart Criteria</key>
+			<data>
+			U0xzdAABAAEAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkCAAABAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAB
+			AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAEAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA
+			AAAAAAAA
+			</data>
+		</dict>
+		<dict>
+			<key>Name</key><string>Musik der 90er</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>197</integer>
+			<key>Playlist Persistent ID</key><string>F287FA151B730F41</string>
+			<key>Distinguished Kind</key><integer>200</integer>
+			<key>All Items</key><true/>
+			<key>Smart Info</key>
+			<data>
+			AQEAAwAAAAIAAAAZAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAA==
+			</data>
+			<key>Smart Criteria</key>
+			<data>
+			U0xzdAABAAEAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAEAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAAB8YAAAAAAAAAAAAAAAAAAAAB
+			AAAAAAAAB88AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgFNMc3QAAQAB
+			AAAAAgAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAB
+			AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAABAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAIAAAAAAAAAAA
+			AAAAAAAAAAEAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+			</data>
+		</dict>
+		<dict>
+			<key>Name</key><string>Zuletzt gespielt</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>200</integer>
+			<key>Playlist Persistent ID</key><string>61EDCA7CCB19E0C2</string>
+			<key>Distinguished Kind</key><integer>203</integer>
+			<key>All Items</key><true/>
+			<key>Smart Info</key>
+			<data>
+			AQEAAwAAAAIAAAAZAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAA==
+			</data>
+			<key>Smart Criteria</key>
+			<data>
+			U0xzdAABAAEAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAAAIAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABELa4tri2uLa7//////////gAAAAAACTqA
+			La4tri2uLa4AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AgAAAQAA
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAB
+			AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA
+			AAAAAAAA
+			</data>
+		</dict>
+		<dict>
+			<key>Name</key><string>MyPlaylist</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>203</integer>
+			<key>Playlist Persistent ID</key><string>8E21F669D0D42893</string>
+			<key>All Items</key><true/>
+			<key>Playlist Items</key>
+			<array>
+				<dict>
+					<key>Track ID</key><integer>99</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>101</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>107</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>105</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>95</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>97</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>91</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>93</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>103</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>109</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>111</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>113</integer>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
