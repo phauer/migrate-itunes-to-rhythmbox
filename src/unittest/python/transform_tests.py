@@ -36,6 +36,8 @@ class LocationTransformTests(unittest.TestCase):
         transformed_location = self.transform_fixed_replacement("D:/Music/Bla/§$%=~°^.mp3")
         self.assertEqual(transformed_location, "file:///home/pha/Music/Bla/%C2%A7$%25=~%C2%B0%5E.mp3")
 
+        transformed_location = self.transform_fixed_replacement("D:/Music/Bla/`´ß+.mp3")
+        self.assertEqual(transformed_location, "file:///home/pha/Music/Bla/%60%C2%B4%C3%9F+.mp3")
 
 if __name__ == '__main__':
     unittest.main()
