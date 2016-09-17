@@ -4,7 +4,7 @@ Script to Migrate iTunes Playlists to Rhythmbox
 
 Tested with:
 - iTunes 12.5.1
-- Rhythmbox 3.3
+- Rhythmbox 3.4
 
 ## Preparation
 You have to install Rhythmbox and import the content of you Music folder in it. Migrate-itunes-to-rhythmbox will import your playlists.
@@ -16,9 +16,7 @@ sudo apt install python-pip
 ```
 Install migrate-itunes-to-rhythmbox
 ```
-# git clone and cd into dir
-$ pyb
-$ pip install target/dist/migrate-itunes-to-rhythmbox-1.0.dev0/dist/migrate-itunes-to-rhythmbox-1.0.dev0.tar.gz 
+$ pip install TODO <path to release on git> 
 # optionally add "~/.local/bin" to PATH
 # test via:
 $ migrate-itunes-to-rhythmbox --help
