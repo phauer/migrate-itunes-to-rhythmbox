@@ -13,7 +13,7 @@ def write(playlists: List[Playlist], target_path: Path, target_library_root: str
                       'search-type': "search-match", 'type': "static"}
         playlist_element = etree.SubElement(root, "playlist", attributes)
         for song in playlist.tracks:
-            transformed_location = transform_to_rhythmbox_path(song.location_unescaped, target_library_root, source_library_root)
+            transformed_location = transform_to_rhythmbox_path(song.location_escaped, target_library_root, source_library_root)
             # transformed_location = transform_to_rhythmbox_path(song.location, target_library_root, source_library_root)
             location_element = etree.SubElement(playlist_element, "location")
             location_element.text = transformed_location

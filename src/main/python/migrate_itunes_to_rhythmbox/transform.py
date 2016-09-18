@@ -3,7 +3,7 @@ import urllib.parse
 # \/:*?"<>| are invalid characters for file names under windows. So we don't have to worry about them.
 
 
-# old implementation. property location_unescaped was not yet available. took some reverse engineering.
+# old implementation. property location_escaped was not yet available. took some reverse engineering.
 def transform_to_rhythmbox_path_old(location: str, target_library_root: str, source_library_root: str) -> str:
     """ replaces the library root and escapes characters, but not all. prefix with 'file://'"""
     replaced_location = location.replace(source_library_root, target_library_root)
@@ -14,9 +14,9 @@ def transform_to_rhythmbox_path_old(location: str, target_library_root: str, sou
     return prefixed
 
 
-# using the new location_unescaped property we rely on the path from iTunes, which fits nicely to Rhythmbox' format.
-def transform_to_rhythmbox_path(location_unescaped: str, target_library_root: str, source_library_root: str) -> str:
-    replaced_location = location_unescaped\
+# using the new location_escaped property we rely on the already escaped path from iTunes, which fits nicely to Rhythmbox' format.
+def transform_to_rhythmbox_path(location_escaped: str, target_library_root: str, source_library_root: str) -> str:
+    replaced_location = location_escaped\
         .replace(source_library_root, target_library_root)\
         .replace("localhost/", "")
     return replaced_location
