@@ -42,7 +42,7 @@ def migrate_playlist(itunes_library_xml: str, rhythmbox_playlists_xml: str, sour
         print("An Error occurred. {}".format(e))
 
 
-rhythmdb_help = "Rhythmbox' database, where the data will be added."
+rhythmdb_help = "Rhythmbox' database, where the data will be added. Please mind that this file will be changed. Maybe you should back up it up front."
 
 
 @cli.command(name="counts-ratings", help="Reads the play counts and ratings from iTunes and adds them to Rhythmbox' database.")

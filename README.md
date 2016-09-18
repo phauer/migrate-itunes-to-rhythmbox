@@ -81,10 +81,12 @@ Options:
                               exported in iTunes with 'File > Library > Export
                               Library...'
   --rhythmdb TEXT             Rhythmbox' database, where the data will be
-                              added.
+                              added. Please mind that this file will be
+                              changed. Maybe you should back up it up front.
   --source_library_root TEXT  Root path path of the iTunes-based library.
   --target_library_root TEXT  Root path path of the Rhythmbox-based library.
   --help                      Show this message and exit.
+
 ```
 
 Examples:
