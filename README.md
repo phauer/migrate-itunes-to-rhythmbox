@@ -10,6 +10,8 @@ Tested with:
 You have to install Rhythmbox and import the content of you Music folder in it. Migrate-itunes-to-rhythmbox will import your playlists.
 
 ## Installation
+You need at least Python 3.5! Check it via `$ python3 --version`
+
 Install pip if you haven't already.
 ```
 sudo apt install python-pip 
