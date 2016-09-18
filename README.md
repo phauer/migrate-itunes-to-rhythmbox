@@ -18,7 +18,7 @@ sudo apt install python-pip
 ```
 Install migrate-itunes-to-rhythmbox
 ```
-$ pip install TODO <path to release on git> 
+$ sudo pip3 install TODO <path to release on git> 
 # optionally add "~/.local/bin" to PATH
 # test via:
 $ migrate-itunes-to-rhythmbox --help
@@ -68,7 +68,7 @@ $ migrate-itunes-to-rhythmbox --itunes_library_xml="iTunes Library.xml" --rhythm
 
 ## Deinstallation
 ```
-pip uninstall migrate-itunes-to-rhythmbox
+sudo pip3 uninstall migrate-itunes-to-rhythmbox
 ```
 
 # Development
