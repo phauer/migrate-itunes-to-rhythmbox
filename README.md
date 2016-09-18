@@ -82,16 +82,29 @@ $ sudo apt install python-pip
 $ sudo apt install python3-venv 
 ```
 
-Project:
+Project Setup:
 ```
 # git clone and move to project directory
 $ python3 -m venv venv
-$ . init.sh
+$ . init.sh # inits venv and sets PYTHONPATH
 $ pip install pybuilder
 $ pyb install_dependencies
 $ pyb # runs tests and builds the project
 # ...
 $ deactivate # deactivates venv
+```
+
+Execution: You can either execute via your IDE or via the shell:
+```
+$ .init.sh # inits venv and sets PYTHONPATH
+
+# CLI 
+$ cd src/main/scripts
+$ ./migrate-itunes-to-rhythmbox --help
+
+# Tests
+$ cd src/unittest/python
+$ python3 integraton_tests.py
 ```
 
 ### Setting up IntelliJ IDEA/PyCharm
