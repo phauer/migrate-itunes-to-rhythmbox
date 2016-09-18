@@ -5,7 +5,7 @@ from path import Path
 from migrate_itunes_to_rhythmbox import itunes_library_reader, rhythmbox_playlists_writer, settings
 
 
-class IntegrationTest(unittest.TestCase):
+class PlaylistTest(unittest.TestCase):
     def setUp(self):
         self.target_folder = Path(settings.TESTOUTPUT_FOLDER)
         if not self.target_folder.exists():
@@ -13,7 +13,7 @@ class IntegrationTest(unittest.TestCase):
 
     def test_happy_path(self):
         target_path = self.target_folder.joinpath("rhythmbox-playlists.xml")
-        itunes_library_path = str(settings.TEST_RESOURCES_FOLDER.joinpath("input", "itunes-library.xml"))
+        itunes_library_path = str(settings.TEST_RESOURCES_FOLDER.joinpath("input", "playlist", "itunes-library.xml"))
         playlists = itunes_library_reader.read_playlists(itunes_library_path)
         rhythmbox_playlists_writer.write(playlists=playlists,
                                          target_path=target_path,
@@ -29,7 +29,7 @@ class IntegrationTest(unittest.TestCase):
 
     def test_exclude_playlist_folders(self):
         target_path = self.target_folder.joinpath("rhythmbox-playlists-with-folders.xml")
-        itunes_library_path = str(settings.TEST_RESOURCES_FOLDER.joinpath("input", "itunes-library-with-playlist-folders.xml"))
+        itunes_library_path = str(settings.TEST_RESOURCES_FOLDER.joinpath("input", "playlist", "itunes-library-with-playlist-folders.xml"))
         playlists = itunes_library_reader.read_playlists(itunes_library_path)
         rhythmbox_playlists_writer.write(playlists=playlists,
                                          target_path=target_path,

@@ -1,4 +1,15 @@
-- before release - add setup.py infos (author, url, license). 
 - migrate count and ratings
-- README "install and usage" via pip install <path to uploaded tar.gz on github>
-- Travis-CI?
+    - add command to cli
+        - update README
+    - test case, where there is already a play_count and rating in rhythmdb. correctly executed? see integrate_value_to_rhythmdb_song_entry()
+    - optional/fix tests:
+        - child tags not in same position; test equality with lxml? sort tags? sort-all-chars-trick?  
+        - set last-played? use value from itunes? remove them from expected file
+- create release
+    - pyb doesn't support URLs in requirements.txt.
+    - a) wait for a fix. see https://github.com/pybuilder/pybuilder/issues/388
+    - b) prepare pyItunes to be uploaded to PyPi. see https://github.com/liamks/pyitunes/issues/28
+    - c) move away from pyb. use plain setup.py instead. do test execution and packaging manually.
+    - d) move away from pyItunes. re-implement the relevant parts.
+    - moreover, add setup.py infos (author, url, license etc.) 
+    - finally update README pointing to the uploaded release
