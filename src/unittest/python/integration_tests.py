@@ -29,8 +29,11 @@ class IntegrationTest(unittest.TestCase):
                                          source_library_root="D:/Music/",
                                          target_library_root="/home/pha/Music/",
                                          exclude_playlist_folders=True)
-        actual_playlist_xml = target_path.open("r").read()
-        self.assertTrue("PlaylistFolder" not in actual_playlist_xml, "Playlist folder should be excluded!")
+        actual_playlist_xml = target_path.open(mode="r", encoding="UTF-8").read()
+
+        self.assertTrue("name=\"PlaylistFolder\"" not in actual_playlist_xml, "Playlist folder should be excluded!")
+        self.assertTrue("name=\"PlaylistFolder-PlaylistInFolder\"" in actual_playlist_xml, "Playlist of folder should be prefixed with folder name!")
+        self.assertTrue("name=\"PlaylistFolder-PlaylistInFolder2\"" in actual_playlist_xml, "Playlist of folder should be prefixed with folder name!")
 
 if __name__ == '__main__':
     unittest.main()
