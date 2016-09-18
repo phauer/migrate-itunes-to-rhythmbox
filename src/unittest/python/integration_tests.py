@@ -1,31 +1,36 @@
 import unittest
-from migrate_itunes_to_rhythmbox import itunes_library_reader, rhythmbox_playlists_writer
+
 from path import Path
+
+from migrate_itunes_to_rhythmbox import itunes_library_reader, rhythmbox_playlists_writer, settings
 
 
 class IntegrationTest(unittest.TestCase):
     def setUp(self):
-        self.target_folder = Path("../../../target/testoutput/")
+        self.target_folder = Path(settings.TESTOUTPUT_FOLDER)
         if not self.target_folder.exists():
             self.target_folder.makedirs()
 
     def test_happy_path(self):
         target_path = self.target_folder.joinpath("rhythmbox-playlists.xml")
-        playlists = itunes_library_reader.read_playlists("../resources/input/itunes-library.xml")
+        itunes_library_path = str(settings.TEST_RESOURCES_FOLDER.joinpath("input", "itunes-library.xml"))
+        playlists = itunes_library_reader.read_playlists(itunes_library_path)
         rhythmbox_playlists_writer.write(playlists=playlists,
                                          target_path=target_path,
                                          source_library_root="D:/Music/",
                                          target_library_root="/home/pha/Music/")
 
+        expected_playlist_xml = settings.TEST_RESOURCES_FOLDER.joinpath("expected_output", "rhythmbox-playlists-modified.xml")
         with target_path.open(mode="r", encoding="UTF-8") as target_path, \
-                Path("../resources/expected_output/rhythmbox-playlists-modified.xml").open("r") as expected_playlist_xml:
+                expected_playlist_xml.open("r") as expected_playlist_xml:
             actual_playlist_xml = target_path.read()
             expected_playlist_xml = expected_playlist_xml.read()
         self.assertEqual(actual_playlist_xml, expected_playlist_xml)
 
     def test_exclude_playlist_folders(self):
         target_path = self.target_folder.joinpath("rhythmbox-playlists-with-folders.xml")
-        playlists = itunes_library_reader.read_playlists("../resources/input/itunes-library-with-playlist-folders.xml")
+        itunes_library_path = str(settings.TEST_RESOURCES_FOLDER.joinpath("input", "itunes-library-with-playlist-folders.xml"))
+        playlists = itunes_library_reader.read_playlists(itunes_library_path)
         rhythmbox_playlists_writer.write(playlists=playlists,
                                          target_path=target_path,
                                          source_library_root="D:/Music/",

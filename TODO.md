@@ -1,4 +1,4 @@
+- before release - add setup.py infos (author, url, license). 
 - migrate count and ratings
 - README "install and usage" via pip install <path to uploaded tar.gz on github>
-- before release - add setup.py infos (author, url, license). 
 - Travis-CI?
