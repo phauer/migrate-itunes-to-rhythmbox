@@ -1,10 +1,10 @@
 - migrate count and ratings
-    - add command to cli
-        - update README
-    - test case, where there is already a play_count and rating in rhythmdb. correctly executed? see integrate_value_to_rhythmdb_song_entry()
+    - test case, where there is already a play_count and rating in rhythmdb. correctly executed? see integrate_value_to_rhythmdb_song_entry(). simply adjust the input rhythmdb and add those cases.
     - optional/fix tests:
         - child tags not in same position; test equality with lxml? sort tags? sort-all-chars-trick?  
         - set last-played? use value from itunes? remove them from expected file
+        - what if itunes file is not contained in rythmbox?
+    - finally: test it with real library
 - create release
     - pyb doesn't support URLs in requirements.txt.
     - a) wait for a fix. see https://github.com/pybuilder/pybuilder/issues/388

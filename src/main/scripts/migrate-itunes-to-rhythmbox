@@ -2,35 +2,36 @@
 from os.path import expanduser
 import click
 from path import Path
-from migrate_itunes_to_rhythmbox import itunes_library_reader, rhythmbox_playlists_writer
+from migrate_itunes_to_rhythmbox import itunes_library_reader, rhythmbox_playlists_writer, rhythmbox_count_rating_integrator
+
+
+@click.group(help="Migrating data (like playlists, play count, ratings) from iTunes to Rhythmbox")
+def cli():
+    pass
 
 itunes_library_xml_help = "Path to the source iTunes library xml (iTunes Library.xml or iTunes Music Library.xml). Can be exported in iTunes with 'File > Library > Export Library...'"
 rhythmbox_playlists_xml_help = "Target Path for the created Rhythmbox playlist.xml'"
-source_library_root_help = "Root path path of the iTunes-based library. Will be replaced with <target_library_root>"
-target_library_root_help = "Root path path of the Rhythmbox-based library. Replaces the value of <source_library_root>"
+source_library_root_help = "Root path path of the iTunes-based library."
+target_library_root_help = "Root path path of the Rhythmbox-based library."
 
 
-@click.command(help="Reads the playlists from iTunes and converts them to Rhythmbox' format. Moreover, it replaces the root path of your library.")
+@cli.command(name="playlists", help="Reads the playlists from iTunes and converts them to Rhythmbox' format. Moreover, it replaces the root path of your library.")
 @click.option('--itunes_library_xml', prompt=itunes_library_xml_help, help=itunes_library_xml_help)
 @click.option('--rhythmbox_playlists_xml', default=expanduser("~/.local/share/rhythmbox/playlists.xml"),
               prompt=rhythmbox_playlists_xml_help, help=rhythmbox_playlists_xml_help)
-@click.option('--source_library_root', prompt=source_library_root_help, help=source_library_root_help)
-@click.option('--target_library_root', default=expanduser("~/Music"), prompt=target_library_root_help, help=target_library_root_help)
+@click.option('--source_library_root', prompt=source_library_root_help, help=source_library_root_help + " Will be replaced with <target_library_root>")
+@click.option('--target_library_root', default=expanduser("~/Music"), prompt=target_library_root_help, help=target_library_root_help + " Replaces the value of <source_library_root>")
 @click.option('--exclude_playlist_folders', type=click.BOOL, default=True, help="Exclude playlist folders. Otherwise you will have the sub playlists AND a playlist for the folder containing also all tracks from the sub playlists.")
-def migrate_playlist(itunes_library_xml: str,
-                     rhythmbox_playlists_xml: str,
-                     source_library_root: str,
-                     target_library_root: str,
-                     exclude_playlist_folders: bool):
+def migrate_playlist(itunes_library_xml: str, rhythmbox_playlists_xml: str, source_library_root: str,
+                     target_library_root: str, exclude_playlist_folders: bool):
     try:
-        expanded_rhythmbox_playlists_xml = expanduser(rhythmbox_playlists_xml)
-        expanded_rhythmbox_playlists_xml_path = Path(expanded_rhythmbox_playlists_xml)
+        expanded_rhythmbox_playlists_xml_path = Path(expanduser(rhythmbox_playlists_xml))
         expanded_itunes_library_xml = expanduser(itunes_library_xml)
 
         print("Reading iTunes library in {}".format(expanded_itunes_library_xml))
         playlists = itunes_library_reader.read_playlists(expanded_itunes_library_xml)
 
-        print("Creating Rhythmbox playlist in {}".format(expanded_rhythmbox_playlists_xml))
+        print("Creating Rhythmbox playlist in {}".format(expanded_rhythmbox_playlists_xml_path))
         rhythmbox_playlists_writer.write(playlists=playlists,
                                          target_path=expanded_rhythmbox_playlists_xml_path,
                                          source_library_root=source_library_root,
@@ -40,6 +41,33 @@ def migrate_playlist(itunes_library_xml: str,
     except (IOError, ValueError) as e:
         print("An Error occurred. {}".format(e))
 
+
+rhythmdb_help = "Rhythmbox' database, where the data will be added."
+
+
+@cli.command(name="counts-ratings", help="Reads the play counts and ratings from iTunes and adds them to Rhythmbox' database.")
+@click.option('--itunes_library_xml', prompt=itunes_library_xml_help, help=itunes_library_xml_help)
+@click.option('--rhythmdb', default=expanduser("~/.local/share/rhythmbox/rhythmdb.xml"), prompt=rhythmdb_help, help=rhythmdb_help)
+@click.option('--source_library_root', prompt=source_library_root_help, help=source_library_root_help)
+@click.option('--target_library_root', default=expanduser("~/Music"), prompt=target_library_root_help, help=target_library_root_help)
+def migrate_counts_ratings(itunes_library_xml: str, rhythmdb: str, source_library_root: str, target_library_root: str):
+    try:
+        expanded_rhythmdb_path = Path(expanduser(rhythmdb))
+        expanded_itunes_library_xml = expanduser(itunes_library_xml)
+
+        print("Reading iTunes library in {}".format(expanded_itunes_library_xml))
+        songs = itunes_library_reader.read_songs(expanded_itunes_library_xml)
+
+        print("Adding play counts and ratings to Rhythmbox DB in {}".format(expanded_rhythmdb_path))
+        rhythmbox_count_rating_integrator.set_count_values(itunes_songs=songs,
+                                                           target_rhythmdb=expanded_rhythmdb_path,
+                                                           itunes_library_root=source_library_root,
+                                                           rhythmbox_library_root=target_library_root)
+
+        print("Finished")
+    except (IOError, ValueError) as e:
+        print("An Error occurred. {}".format(e))
+
 if __name__ == '__main__':
-    migrate_playlist()
+    cli()
 

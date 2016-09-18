@@ -1,13 +1,13 @@
 # Migrate iTunes to Rhythmbox
 
-Script to Migrate iTunes Playlists to Rhythmbox
+Script to migrate iTunes playlists, play counts and ratings to Rhythmbox.
 
 Tested with:
 - iTunes 12.5.1
-- Rhythmbox 3.4
+- Rhythmbox 3.3, 3.4
 
 ## Preparation
-You have to install Rhythmbox and import the content of you Music folder in it. Migrate-itunes-to-rhythmbox will import your playlists.
+You have to install Rhythmbox and import your Music folder **before** you use _migrate-itunes-to-rhythmbox_.
 
 ## Installation
 You need at least Python 3.5! Check it via `$ python3 --version`
@@ -24,8 +24,10 @@ $ sudo pip3 install TODO <path to release on git>
 $ migrate-itunes-to-rhythmbox --help
 ```
 ## Usage
+
+### Migrate Playlists
 ```
-Usage: migrate-itunes-to-rhythmbox [OPTIONS]
+Usage: migrate-itunes-to-rhythmbox playlists [OPTIONS]
 
   Reads the playlists from iTunes and converts them to Rhythmbox' format.
   Moreover, it replaces the root path of your library.
@@ -54,16 +56,40 @@ Examples:
 
 ```
 # get documentation about the parameter
-$ migrate-itunes-to-rhythmbox --help
+$ migrate-itunes-to-rhythmbox playlists --help
 
 # places the created rhythmbox to "~/.local/share/rhythmbox/playlists.xml"
-$ migrate-itunes-to-rhythmbox --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
+$ migrate-itunes-to-rhythmbox playlists--itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
 
 # define rhythmbox_playlists_xml explicitly
-$ migrate-itunes-to-rhythmbox --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" --rhythmbox_playlists_xml="~/.local/share/rhythmbox/playlists.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
+$ migrate-itunes-to-rhythmbox playlists --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" --rhythmbox_playlists_xml="~/.local/share/rhythmbox/playlists.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
 
 # relative paths. "iTunes Library.xml" is in current directory and "rhythmbox-playlists.xml" will also placed there.
-$ migrate-itunes-to-rhythmbox --itunes_library_xml="iTunes Library.xml" --rhythmbox_playlists_xml="rhythmbox-playlists.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
+$ migrate-itunes-to-rhythmbox playlists --itunes_library_xml="iTunes Library.xml" --rhythmbox_playlists_xml="rhythmbox-playlists.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
+```
+
+### Migrate Play Counts and Ratings
+```
+Usage: migrate-itunes-to-rhythmbox counts-ratings [OPTIONS]
+
+  Reads the play counts and ratings from iTunes and adds them to Rhythmbox'
+  database.
+
+Options:
+  --itunes_library_xml TEXT   Path to the source iTunes library xml (iTunes
+                              Library.xml or iTunes Music Library.xml). Can be
+                              exported in iTunes with 'File > Library > Export
+                              Library...'
+  --rhythmdb TEXT             Rhythmbox' database, where the data will be
+                              added.
+  --source_library_root TEXT  Root path path of the iTunes-based library.
+  --target_library_root TEXT  Root path path of the Rhythmbox-based library.
+  --help                      Show this message and exit.
+```
+
+Examples:
+```
+./migrate-itunes-to-rhythmbox counts-ratings --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" --rhythmdb="~/.local/share/rhythmbox/rhythmdb.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
 ```
 
 ## Deinstallation
