@@ -12,4 +12,5 @@ default_task = ['clean', 'publish']
 def set_properties(project):
     project.depends_on_requirements("requirements.txt")
     project.build_depends_on_requirements("requirements-build.txt")
+    project.depends_on("pyItunes", url="git+https://github.com/liamks/pyitunes.git#egg=pyItunes-1.4")
 
