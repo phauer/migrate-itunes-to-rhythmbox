@@ -5,11 +5,7 @@
         - set last-played? use value from itunes? remove them from expected file
         - what if itunes file is not contained in rythmbox?
     - finally: test it with real library
+- write project setup script
 - create release
-    - pyb doesn't support URLs in requirements.txt.
-    - a) wait for a fix. see https://github.com/pybuilder/pybuilder/issues/388
-    - b) prepare pyItunes to be uploaded to PyPi. see https://github.com/liamks/pyitunes/issues/28
-    - c) move away from pyb. use plain setup.py instead. do test execution and packaging manually.
-    - d) move away from pyItunes. re-implement the relevant parts.
     - moreover, add setup.py infos (author, url, license etc.) 
     - finally update README pointing to the uploaded release

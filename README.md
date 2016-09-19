@@ -18,6 +18,7 @@ sudo apt install python-pip
 ```
 Install migrate-itunes-to-rhythmbox
 ```
+$ sudo pip3 install git+https://github.com/liamks/pyitunes.git
 $ sudo pip3 install TODO <path to release on git> 
 # optionally add "~/.local/bin" to PATH
 # test via:
@@ -115,6 +116,7 @@ Project Setup:
 # git clone and move to project directory
 $ python3 -m venv venv
 $ . init.sh # inits venv and sets PYTHONPATH
+$ pip install git+https://github.com/liamks/pyitunes.git
 $ pip install pybuilder
 $ pyb install_dependencies
 $ pyb # runs tests and builds the project
