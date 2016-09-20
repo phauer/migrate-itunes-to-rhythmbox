@@ -14,11 +14,11 @@ You need at least Python 3.5! Check it via `$ python3 --version`
 
 Install pip if you haven't already.
 ```
-sudo apt install python-pip 
+sudo apt install python3-pip 
 ```
 Install migrate-itunes-to-rhythmbox
 ```
-$ sudo pip3 install TODO <path to release on git> --process-dependency-links
+$ pip3 install TODO <path to release on git> --process-dependency-links
 # optionally add "~/.local/bin" to PATH
 # test via:
 $ migrate-itunes-to-rhythmbox --help
@@ -96,7 +96,7 @@ Examples:
 
 ## Deinstallation
 ```
-sudo pip3 uninstall migrate-itunes-to-rhythmbox
+pip3 uninstall migrate-itunes-to-rhythmbox
 ```
 
 # Development
@@ -106,8 +106,7 @@ sudo pip3 uninstall migrate-itunes-to-rhythmbox
 
 Install pip and venv if you haven't already.
 ```
-$ sudo apt install python-pip
-$ sudo apt install python3-venv 
+$ sudo apt install python3-pip python3-venv
 ```
 
 Project Setup:
@@ -116,8 +115,7 @@ Project Setup:
 $ python3 -m venv venv
 $ . init.sh # inits venv and sets PYTHONPATH
 $ pip install pybuilder
-$ pyb install_dependencies
-$ pyb # runs tests and builds the project
+$ pyb # install dependencies, runs tests and builds the project
 # ...
 $ deactivate # deactivates venv
 ```
@@ -141,5 +139,5 @@ $ python3 integraton_tests.py
   - Set path to `<path>/<project root>/venv/bin/python3`
 - Python Facet
   - File > Project Structure > Facets. Add Python Facet and set interpreter of venv
-- `Project Structure... > Modules`. Mark `src/main/python` and `src/unittest/python` as source folder. Mark `target` as excluded folder.
+- `Project Structure... > Modules`. Mark `src/main/python` and `src/unittest/python` as source/test folder. Mark `target` as excluded folder. Mark `src/unittest/resources` as test resources. 
 - Sometimes, IDEA doesn't seem to recompile all Python files. Setting the output path may help. 'Project Structure > Modules > Paths > Use module compile output path'.

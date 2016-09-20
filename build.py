@@ -5,7 +5,7 @@ use_plugin("python.unittest")
 use_plugin("python.install_dependencies")
 use_plugin("python.distutils")
 
-default_task = ['clean', 'publish']
+default_task = ['install_dependencies', 'clean', 'publish']
 
 
 @init
