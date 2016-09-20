@@ -1,4 +1,5 @@
 from pybuilder.core import use_plugin, init, Author
+from migrate_itunes_to_rhythmbox import settings
 
 use_plugin("python.core")
 use_plugin("python.unittest")
@@ -9,7 +10,7 @@ default_task = ['install_dependencies', 'clean', 'publish']
 
 name = "migrate-itunes-to-rhythmbox"
 version = "1.0"
-summary = "TODO"
+summary = settings.PROJECT_DESCRIPTION
 authors = (Author("Philipp Hauer")),
 url = "https://github.com/phauer/migrate-itunes-to-rhythmbox"
 

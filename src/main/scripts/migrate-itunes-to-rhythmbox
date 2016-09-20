@@ -2,10 +2,10 @@
 from os.path import expanduser
 import click
 from path import Path
-from migrate_itunes_to_rhythmbox import itunes_library_reader, rhythmbox_playlists_writer, rhythmbox_count_rating_integrator
+from migrate_itunes_to_rhythmbox import itunes_library_reader, rhythmbox_playlists_writer, rhythmbox_count_rating_integrator, settings
 
 
-@click.group(help="Migrating data (like playlists, play count, ratings) from iTunes to Rhythmbox")
+@click.group(help=settings.PROJECT_DESCRIPTION)
 def cli():
     pass
 
