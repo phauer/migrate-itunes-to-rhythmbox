@@ -1,4 +1,4 @@
-from pybuilder.core import use_plugin, init
+from pybuilder.core import use_plugin, init, Author
 
 use_plugin("python.core")
 use_plugin("python.unittest")
@@ -7,10 +7,24 @@ use_plugin("python.distutils")
 
 default_task = ['install_dependencies', 'clean', 'publish']
 
+name = "migrate-itunes-to-rhythmbox"
+version = "1.0"
+summary = "TODO"
+authors = (Author("Philipp Hauer")),
+url = "https://github.com/phauer/migrate-itunes-to-rhythmbox"
+
 
 @init
 def set_properties(project):
     project.depends_on_requirements("requirements.txt")
     project.build_depends_on_requirements("requirements-build.txt")
     project.depends_on("pyItunes", url="git+https://github.com/liamks/pyitunes.git#egg=pyItunes-1.4")
+    project.set_property('distutils_classifiers', [
+        'Topic :: Multimedia :: Sound/Audio :: Conversion',
+        'Intended Audience :: Information Technology',
+        'Programming Language :: Python :: 3.5',
+        'Natural Language :: English',
+        'Operating System :: POSIX :: Linux',
+    ])
+
 
