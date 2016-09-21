@@ -5,4 +5,4 @@ TARGET_FOLDER = PROJECT_ROOT.joinpath(PROJECT_ROOT, 'target')
 TESTOUTPUT_FOLDER = PROJECT_ROOT.joinpath(TARGET_FOLDER, 'testoutput')
 TEST_RESOURCES_FOLDER = PROJECT_ROOT.joinpath(PROJECT_ROOT, 'src', "unittest", "resources")
 
-PROJECT_DESCRIPTION = "Migrating data (like playlists, play count, ratings) from iTunes to Rhythmbox"
+PROJECT_DESCRIPTION = "Migrating data (like playlists, play count, ratings, play played date) from iTunes to Rhythmbox"
