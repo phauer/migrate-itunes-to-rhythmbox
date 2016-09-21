@@ -1,6 +1,6 @@
 # Migrate iTunes to Rhythmbox
 
-Script to migrate iTunes playlists, play counts and ratings to Rhythmbox.
+Script to migrate iTunes **playlists, play counts, ratings and last played date** to Rhythmbox.
 
 Tested with:
 - iTunes 12.5.1
@@ -48,7 +48,7 @@ Options:
                                   Exclude playlist folders. Otherwise you will
                                   have the sub playlists AND a playlist for
                                   the folder containing also all tracks from
-                                  the sub playlists.
+                                  the sub playlists. Defaults to true.
   --help                          Show this message and exit.
 ```
 
@@ -68,7 +68,7 @@ $ migrate-itunes-to-rhythmbox playlists --itunes_library_xml="~/Music/iTunes/iTu
 $ migrate-itunes-to-rhythmbox playlists --itunes_library_xml="iTunes Library.xml" --rhythmbox_playlists_xml="rhythmbox-playlists.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
 ```
 
-### Migrate Play Counts and Ratings
+### Migrate Play Counts, Ratings and Last Played Date
 ```
 Usage: migrate-itunes-to-rhythmbox counts-ratings [OPTIONS]
 
@@ -91,12 +91,12 @@ Options:
 
 Examples:
 ```
-./migrate-itunes-to-rhythmbox counts-ratings --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" --rhythmdb="~/.local/share/rhythmbox/rhythmdb.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
+$ migrate-itunes-to-rhythmbox counts-ratings --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" --rhythmdb="~/.local/share/rhythmbox/rhythmdb.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
 ```
 
 ## Deinstallation
 ```
-pip3 uninstall migrate-itunes-to-rhythmbox
+$ pip3 uninstall migrate-itunes-to-rhythmbox
 ```
 
 # Development

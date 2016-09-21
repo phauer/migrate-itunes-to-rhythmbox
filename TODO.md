@@ -1,11 +1,9 @@
 - migrate count and ratings
     - test case, where there is already a play_count and rating in rhythmdb. correctly executed? see integrate_value_to_rhythmdb_song_entry(). simply adjust the input rhythmdb and add those cases.
     - optional/fix tests:
+        - last_played date is not equals, but can be due to different creation times... 2h diff! due to wrong time under win -> fix expected xml file!
         - child tags not in same position; test equality with lxml? sort tags? sort-all-chars-trick?  
-        - set last-played? use value from itunes? remove them from expected file
         - what if itunes file is not contained in rythmbox?
     - finally: test it with real library
-- write project setup script
 - create release
-    - moreover, add setup.py infos (author, url, license etc.) 
     - finally update README pointing to the uploaded release

@@ -21,7 +21,7 @@ target_library_root_help = "Root path path of the Rhythmbox-based library."
               prompt=rhythmbox_playlists_xml_help, help=rhythmbox_playlists_xml_help)
 @click.option('--source_library_root', prompt=source_library_root_help, help=source_library_root_help + " Will be replaced with <target_library_root>")
 @click.option('--target_library_root', default=expanduser("~/Music"), prompt=target_library_root_help, help=target_library_root_help + " Replaces the value of <source_library_root>")
-@click.option('--exclude_playlist_folders', type=click.BOOL, default=True, help="Exclude playlist folders. Otherwise you will have the sub playlists AND a playlist for the folder containing also all tracks from the sub playlists.")
+@click.option('--exclude_playlist_folders', type=click.BOOL, default=True, help="Exclude playlist folders. Otherwise you will have the sub playlists AND a playlist for the folder containing also all tracks from the sub playlists. Defaults to true.")
 def migrate_playlist(itunes_library_xml: str, rhythmbox_playlists_xml: str, source_library_root: str,
                      target_library_root: str, exclude_playlist_folders: bool):
     try:
@@ -45,7 +45,7 @@ def migrate_playlist(itunes_library_xml: str, rhythmbox_playlists_xml: str, sour
 rhythmdb_help = "Rhythmbox' database, where the data will be added. Please mind that this file will be changed. Maybe you should back up it up front."
 
 
-@cli.command(name="counts-ratings", help="Reads the play counts and ratings from iTunes and adds them to Rhythmbox' database.")
+@cli.command(name="counts-ratings", help="Reads the play counts, ratings and played-last-date from iTunes and adds them to Rhythmbox' database.")
 @click.option('--itunes_library_xml', prompt=itunes_library_xml_help, help=itunes_library_xml_help)
 @click.option('--rhythmdb', default=expanduser("~/.local/share/rhythmbox/rhythmdb.xml"), prompt=rhythmdb_help, help=rhythmdb_help)
 @click.option('--source_library_root', prompt=source_library_root_help, help=source_library_root_help)
