@@ -21,11 +21,11 @@ class PlaylistTest(unittest.TestCase):
                                          target_library_root="/home/pha/Music/")
 
         expected_playlist_xml = settings.TEST_RESOURCES_FOLDER.joinpath("expected_output", "rhythmbox-playlists-modified.xml")
-        with target_path.open(mode="r", encoding="UTF-8") as target_path, \
-                expected_playlist_xml.open("r") as expected_playlist_xml:
-            actual_playlist_xml = target_path.read()
-            expected_playlist_xml = expected_playlist_xml.read()
-        self.assertEqual(actual_playlist_xml, expected_playlist_xml)
+        with target_path.open(mode="r", encoding="UTF-8") as target_path_opened, \
+                expected_playlist_xml.open("r") as expected_playlist_xml_opened:
+            actual_playlist_xml = target_path_opened.read()
+            expected_playlist_xml = expected_playlist_xml_opened.read()
+        self.assertEqual(actual_playlist_xml, expected_playlist_xml, "{} and {} are different!".format(target_path_opened, expected_playlist_xml))
 
     def test_exclude_playlist_folders(self):
         target_path = self.target_folder.joinpath("rhythmbox-playlists-with-folders.xml")

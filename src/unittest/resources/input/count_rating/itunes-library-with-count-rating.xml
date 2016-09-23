@@ -31,7 +31,7 @@
 			<key>Sample Rate</key><integer>44100</integer>
 			<key>Play Count</key><integer>3</integer>
 			<key>Play Date</key><integer>3557048811</integer>
-			<key>Play Date UTC</key><date>2016-09-18T11:06:51Z</date>
+			<key>Play Date UTC</key><date>2016-09-18T13:37:02Z</date>
 			<key>Artwork Count</key><integer>1</integer>
 			<key>Persistent ID</key><string>C68CDF600BFC7879</string>
 			<key>Track Type</key><string>File</string>
@@ -60,7 +60,7 @@
 			<key>Sample Rate</key><integer>44100</integer>
 			<key>Play Count</key><integer>4</integer>
 			<key>Play Date</key><integer>3557048803</integer>
-			<key>Play Date UTC</key><date>2016-09-18T11:06:43Z</date>
+			<key>Play Date UTC</key><date>2016-09-18T13:35:21Z</date>
 			<key>Rating</key><integer>80</integer>
 			<key>Album Rating</key><integer>80</integer>
 			<key>Album Rating Computed</key><true/>
@@ -125,7 +125,7 @@
 			<key>Comments</key><string>WrzMusic.biz</string>
 			<key>Play Count</key><integer>1</integer>
 			<key>Play Date</key><integer>3557048775</integer>
-			<key>Play Date UTC</key><date>2016-09-18T11:06:15Z</date>
+			<key>Play Date UTC</key><date>2016-09-18T13:37:17Z</date>
 			<key>Skip Count</key><integer>1</integer>
 			<key>Skip Date</key><date>2016-09-18T11:06:49Z</date>
 			<key>Rating</key><integer>60</integer>
@@ -159,7 +159,7 @@
 			<key>Sample Rate</key><integer>44100</integer>
 			<key>Play Count</key><integer>6</integer>
 			<key>Play Date</key><integer>3557048800</integer>
-			<key>Play Date UTC</key><date>2016-09-18T11:06:40Z</date>
+			<key>Play Date UTC</key><date>2016-09-18T13:36:40Z</date>
 			<key>Rating</key><integer>100</integer>
 			<key>Album Rating</key><integer>100</integer>
 			<key>Album Rating Computed</key><true/>
@@ -192,7 +192,7 @@
 			<key>Sample Rate</key><integer>44100</integer>
 			<key>Play Count</key><integer>2</integer>
 			<key>Play Date</key><integer>3557048784</integer>
-			<key>Play Date UTC</key><date>2016-09-18T11:06:24Z</date>
+			<key>Play Date UTC</key><date>2016-09-18T13:37:41Z</date>
 			<key>Rating</key><integer>40</integer>
 			<key>Album Rating</key><integer>40</integer>
 			<key>Album Rating Computed</key><true/>
