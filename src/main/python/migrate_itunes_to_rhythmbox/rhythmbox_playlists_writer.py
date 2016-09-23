@@ -35,7 +35,7 @@ def write(playlists: List[Playlist], target_path: Path, target_library_root: str
             # transformed_location = transform_to_rhythmbox_path(song.location, target_library_root, source_library_root)
             location_element = etree.SubElement(playlist_element, "location")
             location_element.text = transformed_location
-    common.write_to_file(root, target_path)
+    common.write_to_file(root, target_path, add_standalone_to_xml_declaration=False)
 
 
 def filter_playlists_if_necessary(playlists: List[Playlist], exclude_playlist_folders: bool) -> List[Playlist]:

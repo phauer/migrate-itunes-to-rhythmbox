@@ -17,14 +17,14 @@ class SongStatistic:
         self.last_played = last_played
 
 
-def set_count_values(itunes_songs: Dict[int, Song], target_rhythmdb: Path, itunes_library_root: str, rhythmbox_library_root: str) -> None:
+def set_values(itunes_songs: Dict[int, Song], target_rhythmdb: Path, itunes_library_root: str, rhythmbox_library_root: str) -> None:
     itunes_statistics_dict = create_itunes_statistic_dict(itunes_songs, itunes_library_root)
 
     rhythmdb = lxml.etree.parse(target_rhythmdb)
     root = rhythmdb.getroot()
     integrate_statistics_into_rhythmdb(root, itunes_statistics_dict, rhythmbox_library_root)
 
-    common.write_to_file(root, target_rhythmdb)
+    common.write_to_file(root, target_rhythmdb, add_standalone_to_xml_declaration=True)
 
 
 def integrate_statistics_into_rhythmdb(root, itunes_statistics_dict: Dict[str, SongStatistic], rhythmbox_library_root: str):

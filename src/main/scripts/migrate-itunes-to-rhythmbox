@@ -59,10 +59,10 @@ def migrate_counts_ratings(itunes_library_xml: str, rhythmdb: str, source_librar
         songs = itunes_library_reader.read_songs(expanded_itunes_library_xml)
 
         print("Adding play counts and ratings to Rhythmbox DB in {}".format(expanded_rhythmdb_path))
-        rhythmbox_count_rating_integrator.set_count_values(itunes_songs=songs,
-                                                           target_rhythmdb=expanded_rhythmdb_path,
-                                                           itunes_library_root=source_library_root,
-                                                           rhythmbox_library_root=target_library_root)
+        rhythmbox_count_rating_integrator.set_values(itunes_songs=songs,
+                                                     target_rhythmdb=expanded_rhythmdb_path,
+                                                     itunes_library_root=source_library_root,
+                                                     rhythmbox_library_root=target_library_root)
 
         print("Finished")
     except (IOError, ValueError) as e:
