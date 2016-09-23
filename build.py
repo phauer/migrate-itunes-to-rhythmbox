@@ -11,7 +11,7 @@ default_task = ['install_dependencies', 'clean', 'publish']
 name = "migrate-itunes-to-rhythmbox"
 version = "1.0"
 summary = settings.PROJECT_DESCRIPTION
-authors = (Author("Philipp Hauer")),
+authors = (Author("Philipp Hauer", "")),
 url = "https://github.com/phauer/migrate-itunes-to-rhythmbox"
 
 
