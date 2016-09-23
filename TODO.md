@@ -1,7 +1,5 @@
 - migrate count and ratings
     - test case, where there is already a play_count and rating in rhythmdb. correctly executed? see integrate_value_to_rhythmdb_song_entry(). simply adjust the input rhythmdb and add those cases.
-    - what if itunes file is not contained in rythmbox?
     - finally: test it with real library
-    - rhythmdb: "Schusse in die Luft" - missing ü. instead u. look at real db.
 - create release
     - finally update README pointing to the uploaded release
