@@ -2,6 +2,8 @@
 
 Script to migrate iTunes **playlists, play counts, ratings and last played date** to Rhythmbox.
 
+![Convert iTunes playlists, play counts and ratings to Rhyhtmbox](featured_image.svg)
+
 Tested with:
 - iTunes 12.5.1
 - Rhythmbox 3.3, 3.4
