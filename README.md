@@ -18,9 +18,14 @@ sudo apt install python3-pip
 ```
 Install migrate-itunes-to-rhythmbox
 ```
-$ pip3 install TODO <path to release on git> --process-dependency-links
-# optionally add "~/.local/bin" to PATH
-# test via:
+$ pip3 install https://github.com/phauer/migrate-itunes-to-rhythmbox/releases/download/1.0.0/migrate-itunes-to-rhythmbox-1.0.0.tar.gz --process-dependency-links --user
+```
+The script is now installed to `.local/bin/migrate-itunes-to-rhythmbox`. You may want to add "~/.local/bin" to your $PATH:
+```
+echo 'export PATH=~/.local/bin:$PATH' >> ~/.profile 
+```
+Log out and in again. Afterwards, you can call the script via:
+```
 $ migrate-itunes-to-rhythmbox --help
 ```
 ## Usage
