@@ -45,7 +45,7 @@ def migrate_playlist(itunes_library_xml: str, rhythmbox_playlists_xml: str, sour
 rhythmdb_help = "Rhythmbox' database, where the data will be added. Please mind that this file will be changed. Maybe you should back up it up front."
 
 
-@cli.command(name="counts-ratings", help="Reads the play counts, ratings and played-last-date from iTunes and adds them to Rhythmbox' database.")
+@cli.command(name="counts-ratings", help="Reads the play counts, ratings and played-last-date from iTunes and adds them to Rhythmbox' database. Overrides existing values.")
 @click.option('--itunes_library_xml', prompt=itunes_library_xml_help, help=itunes_library_xml_help)
 @click.option('--rhythmdb', default=expanduser("~/.local/share/rhythmbox/rhythmdb.xml"), prompt=rhythmdb_help, help=rhythmdb_help)
 @click.option('--source_library_root', prompt=source_library_root_help, help=source_library_root_help)

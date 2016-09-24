@@ -79,7 +79,7 @@ $ migrate-itunes-to-rhythmbox playlists --itunes_library_xml="iTunes Library.xml
 Usage: migrate-itunes-to-rhythmbox counts-ratings [OPTIONS]
 
   Reads the play counts, ratings and played-last-date from iTunes and adds
-  them to Rhythmbox' database.
+  them to Rhythmbox' database. Overrides existing values.
 
 Options:
   --itunes_library_xml TEXT   Path to the source iTunes library xml (iTunes
