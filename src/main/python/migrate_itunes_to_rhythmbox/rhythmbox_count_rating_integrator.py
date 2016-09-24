@@ -11,10 +11,10 @@ ITUNES_TO_RHYTHMBOX_RATINGS_MAP = {0: 0, 20: 1, 40: 2, 60: 3, 80: 4, 100: 5, Non
 
 
 class SongStatistic:
-    def __init__(self, play_count: int, rating: int, last_played: struct_time):
+    def __init__(self, play_count: int, rating: int, last_played_timestamp: str):
         self.play_count = play_count
         self.rating = rating
-        self.last_played = last_played
+        self.last_played_timestamp = last_played_timestamp
 
 
 def set_values(itunes_songs: Dict[int, Song], target_rhythmdb: Path, itunes_library_root: str, rhythmbox_library_root: str) -> None:
@@ -34,10 +34,13 @@ def integrate_statistics_into_rhythmdb(root, itunes_statistics_dict: Dict[str, S
         canonical_location = location.replace("file://{}".format(rhythmbox_library_root), "")
         if canonical_location in itunes_statistics_dict:
             itunes_statistics = itunes_statistics_dict[canonical_location]
-            last_played = calendar.timegm(itunes_statistics.last_played) if itunes_statistics.last_played is not None else None
-            integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, "play-count", itunes_statistics.play_count)
-            integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, "rating", itunes_statistics.rating)
-            integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, "last-played", last_played)
+            integrate_statistics_into_entry(itunes_statistics, rhythmdb_song_entry)
+
+
+def integrate_statistics_into_entry(itunes_statistics, rhythmdb_song_entry):
+    integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, "play-count", itunes_statistics.play_count)
+    integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, "rating", itunes_statistics.rating)
+    integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, "last-played", itunes_statistics.last_played_timestamp)
 
 
 def integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, rhythmdb_node_name, itunes_value):
@@ -57,10 +60,11 @@ def create_itunes_statistic_dict(itunes_songs: Dict[int, Song], itunes_library_r
     for itunes_song in itunes_songs.values():
         count = itunes_song.play_count
         last_played = itunes_song.lastplayed
+        last_played_timestamp = calendar.timegm(last_played) if last_played is not None else None
         itunes_rating = itunes_song.rating
         mapped_rating = ITUNES_TO_RHYTHMBOX_RATINGS_MAP[itunes_rating]
         location = itunes_song.location_escaped
         canonical_location = location.replace("file://localhost/{}".format(itunes_library_root), "")
-        dict[canonical_location] = SongStatistic(count, mapped_rating, last_played)
+        dict[canonical_location] = SongStatistic(count, mapped_rating, last_played_timestamp)
     return dict
 
