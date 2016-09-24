@@ -8,9 +8,6 @@ Tested with:
 - iTunes 12.5.1
 - Rhythmbox 3.3, 3.4
 
-## Preparation
-You have to install Rhythmbox and import your Music folder **before** you use _migrate-itunes-to-rhythmbox_.
-
 ## Installation
 You need at least Python 3.5! Check it via `$ python3 --version`
 
@@ -31,6 +28,13 @@ Log out and in again. Afterwards, you can call the script via:
 $ migrate-itunes-to-rhythmbox --help
 ```
 ## Usage
+
+### Preparation
+You have to install Rhythmbox and import your Music folder **before** you use _migrate-itunes-to-rhythmbox_. 
+Just place your music under `~/Music` and Rhythmbox will automatically add your music files on start up.
+
+You also need your iTunes Library in the XML format. You can export the file in iTunes with `File > Library > Export Library...`.
+You may also find the XML file under `<Music Folder>/iTunes/iTunes Music Library.xml`. 
 
 ### Migrate Playlists
 ```
@@ -62,16 +66,11 @@ Options:
 Examples:
 
 ```
-# get documentation about the parameter
 $ migrate-itunes-to-rhythmbox playlists --help
 
-# places the created rhythmbox to "~/.local/share/rhythmbox/playlists.xml"
-$ migrate-itunes-to-rhythmbox playlists--itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
-
-# define rhythmbox_playlists_xml explicitly
 $ migrate-itunes-to-rhythmbox playlists --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" --rhythmbox_playlists_xml="~/.local/share/rhythmbox/playlists.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
 
-# relative paths. "iTunes Library.xml" is in current directory and "rhythmbox-playlists.xml" will also placed there.
+# Use relative paths. Assumes that the "iTunes Library.xml" is in current directory and "rhythmbox-playlists.xml" will also placed there.
 $ migrate-itunes-to-rhythmbox playlists --itunes_library_xml="iTunes Library.xml" --rhythmbox_playlists_xml="rhythmbox-playlists.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
 ```
 
@@ -97,6 +96,8 @@ Options:
 
 Examples:
 ```
+$ migrate-itunes-to-rhythmbox counts-ratings --help
+
 $ migrate-itunes-to-rhythmbox counts-ratings --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" --rhythmdb="~/.local/share/rhythmbox/rhythmdb.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
 ```
 
@@ -141,9 +142,9 @@ $ python3 integraton_tests.py
 
 ### Setting up IntelliJ IDEA/PyCharm
 - Configure the venv:
-  - File > Project Structure > Project > Project SDK > Add Local
+  - `File > Project Structure > Project > Project SDK > Add Local`
   - Set path to `<path>/<project root>/venv/bin/python3`
 - Python Facet
-  - File > Project Structure > Facets. Add Python Facet and set interpreter of venv
+  - `File > Project Structure > Facets`. Add Python Facet and set interpreter of venv
 - `Project Structure... > Modules`. Mark `src/main/python` and `src/unittest/python` as source/test folder. Mark `target` as excluded folder. Mark `src/unittest/resources` as test resources. 
-- Sometimes IDEA doesn't seem to recompile all Python files. Setting the output path may help. 'Project Structure > Modules > Paths > Use module compile output path'.
+- Sometimes IDEA doesn't seem to recompile all Python files. Setting the output path may help. `Project Structure > Modules > Paths > Use module compile output path`.
