@@ -1,5 +1,3 @@
-- migrate count and ratings
-    - test case, where there is already a play_count and rating in rhythmdb. correctly executed? see integrate_value_to_rhythmdb_song_entry(). simply adjust the input rhythmdb and add those cases.
-    - finally: test it with real library
-- create release
-    - finally update README pointing to the uploaded release
+- README   
+    - pic?
+- promo?
