@@ -1,2 +1,4 @@
-- add tests for remote songs
-- extend pyItunes: Add to Song: Track Type ("File" vs "Remote"). optionally Purchased (None vs True) and Matched (None vs True)
+- #1
+  - centralize validation and error message
+  - add tests for remote songs. also for counts-ratings
+  - extend pyItunes: Add to Song: Track Type ("File" vs "Remote"). optionally Purchased (None vs True) and Matched (None vs True)

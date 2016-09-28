@@ -58,13 +58,17 @@ def create_itunes_statistic_dict(itunes_songs: Dict[int, Song], itunes_library_r
     """use canonical location as a common identifier. returns dict[canonical_location -> SongStatistic(play_count, rating)]"""
     dict = {}
     for itunes_song in itunes_songs.values():
-        count = itunes_song.play_count
-        last_played = itunes_song.lastplayed
-        last_played_timestamp = calendar.timegm(last_played) if last_played is not None else None
-        itunes_rating = itunes_song.rating
-        mapped_rating = ITUNES_TO_RHYTHMBOX_RATINGS_MAP[itunes_rating]
-        location = itunes_song.location_escaped
-        canonical_location = location.replace("file://localhost/{}".format(itunes_library_root), "")
-        dict[canonical_location] = SongStatistic(count, mapped_rating, last_played_timestamp)
+        if itunes_song.location_escaped is not None:
+            count = itunes_song.play_count
+            last_played = itunes_song.lastplayed
+            last_played_timestamp = calendar.timegm(last_played) if last_played is not None else None
+            itunes_rating = itunes_song.rating
+            mapped_rating = ITUNES_TO_RHYTHMBOX_RATINGS_MAP[itunes_rating]
+            location = itunes_song.location_escaped
+            canonical_location = location.replace("file://localhost/{}".format(itunes_library_root), "")
+            dict[canonical_location] = SongStatistic(count, mapped_rating, last_played_timestamp)
+        else:
+            print("   Can't assign the track [{} - {}] because there is no file location defined. It's probably a remote file."
+                  .format(itunes_song.artist, itunes_song.name))
     return dict
 
