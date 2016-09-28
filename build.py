@@ -9,7 +9,7 @@ use_plugin("python.distutils")
 default_task = ['install_dependencies', 'clean', 'publish']
 
 name = "migrate-itunes-to-rhythmbox"
-version = "1.0.0"
+version = "1.0.1"
 summary = settings.PROJECT_DESCRIPTION
 authors = (Author("Philipp Hauer", "")),
 url = "https://github.com/phauer/migrate-itunes-to-rhythmbox"

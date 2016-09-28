@@ -1,5 +1,5 @@
 from lxml import etree
-from pyItunes import Playlist
+from pyItunes import Playlist, Song
 from typing import List, Dict
 from path import Path
 from migrate_itunes_to_rhythmbox.transform import transform_to_rhythmbox_path
@@ -31,10 +31,13 @@ def write(playlists: List[Playlist], target_path: Path, target_library_root: str
                       'search-type': "search-match", 'type': "static"}
         playlist_element = etree.SubElement(root, "playlist", attributes)
         for song in playlist.tracks:
-            transformed_location = transform_to_rhythmbox_path(song.location_escaped, target_library_root, source_library_root)
-            # transformed_location = transform_to_rhythmbox_path(song.location, target_library_root, source_library_root)
-            location_element = etree.SubElement(playlist_element, "location")
-            location_element.text = transformed_location
+            if song.location_escaped is not None:
+                transformed_location = transform_to_rhythmbox_path(song.location_escaped, target_library_root, source_library_root)
+                location_element = etree.SubElement(playlist_element, "location")
+                location_element.text = transformed_location
+            else:
+                print("   Can't convert the track [{} - {}] in playlist '{}' because there is no file location defined. It's probably a remote file."
+                      .format(song.artist, song.name, playlist.name))
     common.write_to_file(root, target_path, add_standalone_to_xml_declaration=False)
 
 

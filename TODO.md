@@ -1,0 +1,2 @@
+- add tests for remote songs
+- extend pyItunes: Add to Song: Track Type ("File" vs "Remote"). optionally Purchased (None vs True) and Matched (None vs True)
