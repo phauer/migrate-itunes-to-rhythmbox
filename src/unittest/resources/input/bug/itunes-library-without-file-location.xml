@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Major Version</key><integer>1</integer>
+	<key>Minor Version</key><integer>1</integer>
+	<key>Date</key><date>2016-09-17T12:01:26Z</date>
+	<key>Application Version</key><string>12.5.1.21</string>
+	<key>Features</key><integer>5</integer>
+	<key>Show Content Ratings</key><true/>
+	<key>Music Folder</key><string>file://localhost/D:/Music/iTunes-Playground/iTunes%20Media/</string>
+	<key>Library Persistent ID</key><string>BA52EC49A8296F4C</string>
+	<key>Tracks</key>
+	<dict>
+		<key>89</key>
+		<dict>
+			<key>Track ID</key><integer>41632</integer>
+			<key>Name</key><string>Je t'aime</string>
+			<key>Artist</key><string>Anthony Ventura</string>
+			<key>Album Artist</key><string>Anthony Ventura</string>
+			<key>Album</key><string>Romantic Memories</string>
+			<key>Genre</key><string>Easy Listening</string>
+			<key>Kind</key><string>Purchased AAC audio file</string>
+			<key>Size</key><integer>3516863</integer>
+			<key>Total Time</key><integer>213173</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>11</integer>
+			<key>Year</key><integer>1998</integer>
+			<key>Date Modified</key><date>2006-03-19T21:32:12Z</date>
+			<key>Date Added</key><date>2006-03-20T02:32:12Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Romantic Memories</string>
+			<key>Sort Artist</key><string>Anthony Ventura</string>
+			<key>Sort Name</key><string>Je t'aime</string>
+			<key>Persistent ID</key><string>669564428F274E1A</string>
+			<key>Track Type</key><string>Remote</string>
+			<key>Purchased</key><true/>
+		</dict>
+		<key>91</key>
+		<dict>
+			<key>Track ID</key><integer>41654</integer>
+			<key>Name</key><string>Jein</string>
+			<key>Artist</key><string>Fettes Brot</string>
+			<key>Album Artist</key><string>Fettes Brot</string>
+			<key>Album</key><string>Außen Top Hits, innen Geschmack</string>
+			<key>Genre</key><string>Hip Hop/Rap</string>
+			<key>Kind</key><string>Purchased AAC audio file</string>
+			<key>Size</key><integer>5741720</integer>
+			<key>Total Time</key><integer>356031</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>1994</integer>
+			<key>Date Modified</key><date>2008-02-13T14:25:52Z</date>
+			<key>Date Added</key><date>2008-02-13T19:25:52Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Sort Album</key><string>Außen Top Hits, innen Geschmack</string>
+			<key>Sort Artist</key><string>Fettes Brot</string>
+			<key>Sort Name</key><string>Jein</string>
+			<key>Persistent ID</key><string>6D3D233C02DC706E</string>
+			<key>Track Type</key><string>Remote</string>
+			<key>Purchased</key><true/>
+		</dict>
+		<key>93</key>
+		<dict>
+			<key>Track ID</key><integer>41676</integer>
+			<key>Name</key><string>Sense</string>
+			<key>Artist</key><string>Züri West</string>
+			<key>Album Artist</key><string>Züri West</string>
+			<key>Album</key><string>Hoover Jam</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>Purchased AAC audio file</string>
+			<key>Size</key><integer>3907093</integer>
+			<key>Total Time</key><integer>247840</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>10</integer>
+			<key>Track Count</key><integer>12</integer>
+			<key>Year</key><integer>1996</integer>
+			<key>Date Modified</key><date>2008-03-06T13:25:49Z</date>
+			<key>Date Added</key><date>2008-03-06T18:25:49Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Hoover Jam</string>
+			<key>Sort Artist</key><string>Züri West</string>
+			<key>Sort Name</key><string>Sense</string>
+			<key>Persistent ID</key><string>DDA7AAFC655DBDE2</string>
+			<key>Track Type</key><string>Remote</string>
+			<key>Purchased</key><true/>
+		</dict>
+		<key>95</key>
+		<dict>
+			<key>Track ID</key><integer>41682</integer>
+			<key>Name</key><string>Like A Catgroove</string>
+			<key>Artist</key><string>Parov Stelar</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>10877514</integer>
+			<key>Total Time</key><integer>271934</integer>
+			<key>Date Modified</key><date>2012-10-14T14:58:25Z</date>
+			<key>Date Added</key><date>2012-10-14T19:58:00Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Normalization</key><integer>3713</integer>
+			<key>Persistent ID</key><string>36F514F2EEAB9F57</string>
+			<key>Track Type</key><string>Remote</string>
+		</dict>
+		<key>97</key>
+		<dict>
+			<key>Track ID</key><integer>41692</integer>
+			<key>Name</key><string>I'm Bound To Pack It Up</string>
+			<key>Artist</key><string>The White Stripes</string>
+			<key>Album</key><string>De Stijl [2002, US, V2 Rec., 63881-27132-2]</string>
+			<key>Genre</key><string>Garage/Blues</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>7740025</integer>
+			<key>Total Time</key><integer>189910</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Year</key><integer>2000</integer>
+			<key>Date Modified</key><date>2012-11-29T16:16:26Z</date>
+			<key>Date Added</key><date>2012-11-29T21:47:58Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Normalization</key><integer>5210</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Artist</key><string>White Stripes</string>
+			<key>Persistent ID</key><string>81F52D2AEACF0463</string>
+			<key>Track Type</key><string>Remote</string>
+		</dict>
+		<key>99</key>
+		<dict>
+			<key>Track ID</key><integer>41736</integer>
+			<key>Name</key><string>Well It's True That We Love One Another</string>
+			<key>Artist</key><string>The White Stripes</string>
+			<key>Album</key><string>Elephant [Japan, V2 Rec., V2CP 150]</string>
+			<key>Genre</key><string>Garage/Blues</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>8817446</integer>
+			<key>Total Time</key><integer>219611</integer>
+			<key>Track Number</key><integer>14</integer>
+			<key>Year</key><integer>2003</integer>
+			<key>Date Modified</key><date>2012-11-29T16:10:13Z</date>
+			<key>Date Added</key><date>2012-11-29T21:48:13Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Normalization</key><integer>1762</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Artist</key><string>White Stripes</string>
+			<key>Persistent ID</key><string>344F654FB22A4CDF</string>
+			<key>Track Type</key><string>Remote</string>
+		</dict>
+		<key>101</key>
+		<dict>
+			<key>Track ID</key><integer>10462</integer>
+			<key>Name</key><string>Does Your Mother Know</string>
+			<key>Artist</key><string>ABBA</string>
+			<key>Album</key><string>The Definitive Collection</string>
+			<key>Genre</key><string>Oldies</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>3133416</integer>
+			<key>Total Time</key><integer>195552</integer>
+			<key>Date Modified</key><date>2009-08-31T22:13:18Z</date>
+			<key>Date Added</key><date>2006-12-02T23:32:05Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3249168674</integer>
+			<key>Play Date UTC</key><date>2006-12-17T01:51:14Z</date>
+			<key>Normalization</key><integer>3899</integer>
+			<key>Sort Album</key><string>Definitive Collection</string>
+			<key>Persistent ID</key><string>A68BF3FC2BCB4B78</string>
+			<key>Track Type</key><string>Remote</string>
+			<key>Matched</key><true/>
+		</dict>
+	</dict>
+	<key>Playlists</key>
+	<array>
+		<dict>
+			<key>Name</key><string>MyPlaylist</string>
+			<key>Description</key><string></string>
+			<key>Playlist ID</key><integer>197</integer>
+			<key>Playlist Persistent ID</key><string>8E21F669D0D42893</string>
+			<key>All Items</key><true/>
+			<key>Playlist Items</key>
+			<array>
+				<dict>
+					<key>Track ID</key><integer>97</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>99</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>93</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>95</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>89</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>91</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>101</integer>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
