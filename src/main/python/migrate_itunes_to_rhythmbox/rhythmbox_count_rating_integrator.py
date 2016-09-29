@@ -17,17 +17,31 @@ class SongStatistic:
         self.last_played_timestamp = last_played_timestamp
 
 
-def set_values(itunes_songs: Dict[int, Song], target_rhythmdb: Path, itunes_library_root: str, rhythmbox_library_root: str) -> None:
+class IntegrationLog:
+    def __init__(self):
+        self.rhythmbox_song_entries_changed = 0
+
+    def increment_changed_song_counter(self):
+        self.rhythmbox_song_entries_changed += 1
+
+    def something_was_changed(self) -> bool:
+        return self.rhythmbox_song_entries_changed != 0
+
+
+def set_values(itunes_songs: Dict[int, Song], target_rhythmdb: Path, itunes_library_root: str, rhythmbox_library_root: str) -> IntegrationLog:
     itunes_statistics_dict = create_itunes_statistic_dict(itunes_songs, itunes_library_root)
 
     rhythmdb = lxml.etree.parse(target_rhythmdb)
     root = rhythmdb.getroot()
-    integrate_statistics_into_rhythmdb(root, itunes_statistics_dict, rhythmbox_library_root)
+    log = integrate_statistics_into_rhythmdb(root, itunes_statistics_dict, rhythmbox_library_root)
 
-    common.write_to_file(root, target_rhythmdb, add_standalone_to_xml_declaration=True)
+    if log.something_was_changed():
+        common.write_to_file(root, target_rhythmdb, add_standalone_to_xml_declaration=True)
+    return log
 
 
-def integrate_statistics_into_rhythmdb(root, itunes_statistics_dict: Dict[str, SongStatistic], rhythmbox_library_root: str):
+def integrate_statistics_into_rhythmdb(root, itunes_statistics_dict: Dict[str, SongStatistic], rhythmbox_library_root: str) -> IntegrationLog:
+    log = IntegrationLog()
     rhythmdb_song_entries = root.getchildren()
     for rhythmdb_song_entry in rhythmdb_song_entries:
         location = rhythmdb_song_entry.find("location").text
@@ -35,6 +49,8 @@ def integrate_statistics_into_rhythmdb(root, itunes_statistics_dict: Dict[str, S
         if canonical_location in itunes_statistics_dict:
             itunes_statistics = itunes_statistics_dict[canonical_location]
             integrate_statistics_into_entry(itunes_statistics, rhythmdb_song_entry)
+            log.increment_changed_song_counter()
+    return log
 
 
 def integrate_statistics_into_entry(itunes_statistics, rhythmdb_song_entry):
