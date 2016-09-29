@@ -2,7 +2,7 @@ import unittest
 from lxml import etree
 from path import Path
 from migrate_itunes_to_rhythmbox import itunes_library_reader, rhythmbox_count_rating_integrator, settings
-from migrate_itunes_to_rhythmbox.rhythmbox_count_rating_integrator import SongStatistic
+from migrate_itunes_to_rhythmbox.rhythmbox_count_rating_integrator import SongStatistic, IntegrationLog
 
 
 def sort_and_clean(actual_playlist_xml):
@@ -14,26 +14,38 @@ class CounterIntegrationTest(unittest.TestCase):
     maxDiff = None
 
     def setUp(self):
-        self.target_folder = Path(settings.TESTOUTPUT_FOLDER)
+        self.target_folder = Path(settings.TESTOUTPUT_FOLDER).joinpath("CounterIntegrationTest")
         if not self.target_folder.exists():
             self.target_folder.makedirs()
 
     def test_happy_path(self):
         self.set_values_and_compare(rhythmdb_without_cout_rating=settings.TEST_RESOURCES_FOLDER.joinpath("input", "count_rating", "rhythmdb-without-count-ratings-one-track-missing.xml"),
                                     itunes_library_path=settings.TEST_RESOURCES_FOLDER.joinpath("input", "count_rating", "itunes-library-with-count-rating.xml"),
-                                    expected_rhythmboxdb=settings.TEST_RESOURCES_FOLDER.joinpath("expected_output", "rhythmdb-count-ratings-one-track-missing.xml"))
+                                    expected_rhythmboxdb=settings.TEST_RESOURCES_FOLDER.joinpath("expected_output", "rhythmdb-count-ratings-one-track-missing.xml"),
+                                    output_file_name="happy_path.xml")
 
     def test_itunes_track_missing_in_rhythmdb(self):
         self.set_values_and_compare(rhythmdb_without_cout_rating=settings.TEST_RESOURCES_FOLDER.joinpath("input", "count_rating", "rhythmdb-without-count-ratings.xml"),
                                     itunes_library_path=settings.TEST_RESOURCES_FOLDER.joinpath("input", "count_rating", "itunes-library-with-count-rating.xml"),
-                                    expected_rhythmboxdb=settings.TEST_RESOURCES_FOLDER.joinpath("expected_output", "rhythmdb-count-ratings.xml"))
+                                    expected_rhythmboxdb=settings.TEST_RESOURCES_FOLDER.joinpath("expected_output", "rhythmdb-count-ratings.xml"),
+                                    output_file_name="itunes_track_missing_in_rhythmdb.xml")
 
-    def set_values_and_compare(self, rhythmdb_without_cout_rating: Path, itunes_library_path: Path, expected_rhythmboxdb:Path):
-        target_rhythmdb = self.target_folder.joinpath(str(rhythmdb_without_cout_rating.name))
+    def test_itunes_tracks_without_file_location(self):
+        # no exception and nothing should be changed
+        arbitary_rhythmdb = settings.TEST_RESOURCES_FOLDER.joinpath("input", "count_rating", "rhythmdb-without-count-ratings.xml")
+        log = self.set_values_and_compare(
+                                    rhythmdb_without_cout_rating=arbitary_rhythmdb,
+                                    itunes_library_path=settings.TEST_RESOURCES_FOLDER.joinpath("input", "bug", "itunes-library-without-file-location.xml"),
+                                    expected_rhythmboxdb=arbitary_rhythmdb,
+                                    output_file_name="itunes_tracks_without_file_location.xml")
+        self.assertFalse(log.something_was_changed())
+
+    def set_values_and_compare(self, rhythmdb_without_cout_rating: Path, itunes_library_path: Path, expected_rhythmboxdb:Path, output_file_name: str) -> IntegrationLog:
+        target_rhythmdb = self.target_folder.joinpath(output_file_name)
         rhythmdb_without_cout_rating.copy(target_rhythmdb)
         itunes_library = str(itunes_library_path)
         songs = itunes_library_reader.read_songs(itunes_library)
-        rhythmbox_count_rating_integrator.set_values(itunes_songs=songs,
+        log = rhythmbox_count_rating_integrator.set_values(itunes_songs=songs,
                                                      target_rhythmdb=target_rhythmdb,
                                                      itunes_library_root="D:/Music/",
                                                      rhythmbox_library_root="/home/pha/Music/")
@@ -47,6 +59,7 @@ class CounterIntegrationTest(unittest.TestCase):
         expected_playlist_xml_normalized = sort_and_clean(expected_playlist_xml)
         self.assertEqual(actual_playlist_xml_normalized, expected_playlist_xml_normalized,
                          "Normalized content of {} and {} are different!".format(expected_rhythmboxdb, target_rhythmdb))
+        return log
 
 
 class CounterUnitTest(unittest.TestCase):

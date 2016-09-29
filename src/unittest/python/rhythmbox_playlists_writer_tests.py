@@ -7,7 +7,7 @@ from migrate_itunes_to_rhythmbox import itunes_library_reader, rhythmbox_playlis
 
 class PlaylistTest(unittest.TestCase):
     def setUp(self):
-        self.target_folder = Path(settings.TESTOUTPUT_FOLDER)
+        self.target_folder = Path(settings.TESTOUTPUT_FOLDER).joinpath("PlaylistTest")
         if not self.target_folder.exists():
             self.target_folder.makedirs()
 
