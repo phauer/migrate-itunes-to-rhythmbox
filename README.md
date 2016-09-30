@@ -68,11 +68,45 @@ Examples:
 ```
 $ migrate-itunes-to-rhythmbox playlists --help
 
-$ migrate-itunes-to-rhythmbox playlists --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" --rhythmbox_playlists_xml="~/.local/share/rhythmbox/playlists.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
+# example:
+$ migrate-itunes-to-rhythmbox playlists \
+    --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" \
+    --rhythmbox_playlists_xml="~/.local/share/rhythmbox/playlists.xml" \
+    --source_library_root="D:/Music/" \
+    --target_library_root="/home/pha/Music/"
+
+# example, where iTunes library lies under "C:/Users/(username)/Music/iTunes/iTunes%20Media/Music/", which is usally the case
+migrate-itunes-to-rhythmbox playlists \
+    --itunes_library_xml="~/iTunes/iTunes Music Library.xml" \
+    --rhythmbox_playlists_xml="~/.local/share/rhythmbox/playlists.xml" \
+    --source_library_root="C:/Users/(username)/Music/iTunes/iTunes%20Media/Music/" \
+    --target_library_root="/home/(username)/Music/"
 
 # Use relative paths. Assumes that the "iTunes Library.xml" is in current directory and "rhythmbox-playlists.xml" will also placed there.
-$ migrate-itunes-to-rhythmbox playlists --itunes_library_xml="iTunes Library.xml" --rhythmbox_playlists_xml="rhythmbox-playlists.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
+$ migrate-itunes-to-rhythmbox playlists \
+    --itunes_library_xml="iTunes Library.xml" \
+    --rhythmbox_playlists_xml="rhythmbox-playlists.xml" \
+    --source_library_root="D:/Music/" \
+    --target_library_root="/home/pha/Music/"
 ```
+
+#### Troubleshooting
+
+##### The created playlists are empty in Rhythmbox
+Please check your path parameters! Given:
+
+- `--itunes_library_xml="~/iTunes/iTunes Music Library.xml"`
+- `--source_library_root="C:/Users/(username)/Music/iTunes/iTunes%20Media/Music/"`
+- `--target_library_root="/home/(username)/Music/"`
+- `--rhythmbox_playlists_xml="~/.local/share/rhythmbox/playlists.xml"`
+
+Basically, the script will take the song paths in your `~/iTunes/iTunes Music Library.xml` and replaces the `source_library_root` part with the value of `target_library_root`. The created path is written to the `~/.local/share/rhythmbox/playlists.xml`.
+However, the created paths should be the same as in your `~/.local/share/rhythmbox/rhythmdb.xml`. If there is a song path in a playlist but this path can't be found in the `rhythmdb.xml`, Rhythmbox won't show the song in the playlist.
+
+Bottom line: 
+- Compare the paths in the created `playlists.xml` with the ones in `~/.local/share/rhythmbox/rhythmdb.xml`. They have to match exactly! 
+- Ensure that there really _is_ the `source_library_root` value in the paths in your `--itunes_library_xml`. Given `--source_library_root="C:/Users/(username)/Music/iTunes/iTunes%20Media/Music/"` the paths have to start with `file://localhost/C:/Users/(username)/Music/iTunes/iTunes%20Media/Music/`.
+- Ensure that the `target_library_root` value matches to the paths in the `~/.local/share/rhythmbox/rhythmdb.xml`. Given `target_library_root=/home/(username)/Music/` the paths have to start with `file:///home/(username)/Music/`.
 
 ### Migrate Play Counts, Ratings and Last Played Date
 ```
@@ -98,7 +132,11 @@ Examples:
 ```
 $ migrate-itunes-to-rhythmbox counts-ratings --help
 
-$ migrate-itunes-to-rhythmbox counts-ratings --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" --rhythmdb="~/.local/share/rhythmbox/rhythmdb.xml" --source_library_root="D:/Music/" --target_library_root="/home/pha/Music/"
+$ migrate-itunes-to-rhythmbox counts-ratings \
+    --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" \
+    --rhythmdb="~/.local/share/rhythmbox/rhythmdb.xml" \
+    --source_library_root="D:/Music/" \
+    --target_library_root="/home/pha/Music/"
 ```
 
 ## Deinstallation
