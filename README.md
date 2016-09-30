@@ -93,11 +93,11 @@ $ migrate-itunes-to-rhythmbox playlists \
 #### Troubleshooting
 
 ##### The created playlists are empty in Rhythmbox
-Please check your path parameters! Given:
+Please check your xxxx_library_root parameters! Given:
 
 - `--itunes_library_xml="~/iTunes/iTunes Music Library.xml"`
-- `--source_library_root="C:/Users/(username)/Music/iTunes/iTunes%20Media/Music/"`
-- `--target_library_root="/home/(username)/Music/"`
+- **`--source_library_root="C:/Users/(username)/Music/iTunes/iTunes%20Media/Music/"`**
+- **`--target_library_root="/home/(username)/Music/"`**
 - `--rhythmbox_playlists_xml="~/.local/share/rhythmbox/playlists.xml"`
 
 Basically, the script will take the song paths in your `~/iTunes/iTunes Music Library.xml` and replaces the `source_library_root` part with the value of `target_library_root`. The created path is written to the `~/.local/share/rhythmbox/playlists.xml`.
