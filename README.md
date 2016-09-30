@@ -63,7 +63,7 @@ Options:
   --help                          Show this message and exit.
 ```
 
-Examples:
+#### Examples
 
 ```
 $ migrate-itunes-to-rhythmbox playlists --help
@@ -75,7 +75,7 @@ $ migrate-itunes-to-rhythmbox playlists \
     --source_library_root="D:/Music/" \
     --target_library_root="/home/pha/Music/"
 
-# example, where iTunes library lies under "C:/Users/(username)/Music/iTunes/iTunes%20Media/Music/", which is usally the case
+# example, where iTunes library lies under "C:/Users/(username)/Music/iTunes/iTunes%20Media/Music/" which is quite common
 migrate-itunes-to-rhythmbox playlists \
     --itunes_library_xml="~/iTunes/iTunes Music Library.xml" \
     --rhythmbox_playlists_xml="~/.local/share/rhythmbox/playlists.xml" \
