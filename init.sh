@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[@]}" )" && pwd )" # find out script folder, when being sourced.
 echo "Script Folder: $SCRIPT_DIR"
 
