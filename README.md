@@ -157,8 +157,8 @@ $ sudo apt install python3-pip python3-venv
 Project Setup:
 ```
 # git clone and move to project directory
-$ python3 -m venv venv
-$ . init.sh # inits venv and sets PYTHONPATH
+$ pyvenv venv
+$ source init.sh # inits venv and sets PYTHONPATH
 $ pip install pybuilder
 $ pyb # install dependencies, runs tests and builds the project
 # ...
