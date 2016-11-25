@@ -15,7 +15,7 @@ You need at least Python 3.5! Check it via `$ python3 --version`
 
 Install pip if you haven't already.
 ```
-sudo apt install python3-pip 
+$ sudo apt install python3-pip 
 ```
 Install _migrate-itunes-to-rhythmbox_
 ```
@@ -23,7 +23,7 @@ $ pip3 install https://github.com/phauer/migrate-itunes-to-rhythmbox/releases/do
 ```
 The script is now installed to `.local/bin/migrate-itunes-to-rhythmbox`. You may want to add `~/.local/bin` to your $PATH:
 ```
-echo 'export PATH=~/.local/bin:$PATH' >> ~/.profile 
+$ echo 'export PATH=~/.local/bin:$PATH' >> ~/.profile 
 ```
 Log out and in again. Afterwards, you can call the script via:
 ```
