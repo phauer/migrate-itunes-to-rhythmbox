@@ -107,7 +107,7 @@ However, the created paths should be the same as in your `~/.local/share/rhythmb
 
 Bottom line: 
 - Compare the paths in the created `playlists.xml` with the ones in `~/.local/share/rhythmbox/rhythmdb.xml`. They have to match exactly! 
-- Ensure that there really _is_ the `source_library_root` value in the paths in your `--itunes_library_xml`. Given `--source_library_root="C:/Users/(username)/Music/iTunes/iTunes%20Media/Music/"` the paths have to start with `file://localhost/C:/Users/(username)/Music/iTunes/iTunes%20Media/Music/`.
+- Ensure that there really _is_ the `source_library_root` value in the paths in your `--itunes_library_xml`. Given `--source_library_root="C:/Users/(username)/Music/iTunes/iTunes%20Media/Music/"` the paths have to start with `file://localhost/C:/Users/(username)/Music/iTunes/iTunes%20Media/Music/` (on Windows) or `file://C:/Users/(username)/Music/iTunes/iTunes%20Media/Music/` (on Mac).
 - Ensure that the `target_library_root` value matches to the paths in the `~/.local/share/rhythmbox/rhythmdb.xml`. Given `target_library_root=/home/(username)/Music/` the paths have to start with `file:///home/(username)/Music/`.
 
 ### Migrate Play Counts, Ratings and Last Played Date
