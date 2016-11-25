@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Major Version</key><integer>1</integer>
+	<key>Minor Version</key><integer>1</integer>
+	<key>Date</key><date>2016-09-18T11:07:08Z</date>
+	<key>Application Version</key><string>12.5.1.21</string>
+	<key>Features</key><integer>5</integer>
+	<key>Show Content Ratings</key><true/>
+	<key>Music Folder</key><string>file://localhost/D:/Music/iTunes-Count-Rating/iTunes%20Media/</string>
+	<key>Library Persistent ID</key><string>089C2DE77FB279E8</string>
+	<key>Tracks</key>
+	<dict>
+		<key>164</key>
+		<dict>
+			<key>Track ID</key><integer>2050</integer>
+			<key>Size</key><integer>6391309</integer>
+			<key>Total Time</key><integer>266213</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Date Modified</key><date>2006-03-04T16:02:50Z</date>
+			<key>Date Added</key><date>2009-07-13T00:25:51Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>36</integer>
+			<key>Play Date</key><integer>3547037864</integer>
+			<key>Play Date UTC</key><date>2016-05-25T20:17:44Z</date>
+			<key>Skip Count</key><integer>6</integer>
+			<key>Skip Date</key><date>2014-02-21T19:14:09Z</date>
+			<key>Rating</key><integer>100</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Persistent ID</key><string>7CF77B2004D88CA4</string>
+			<key>Track Type</key><string>File</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+			<key>Name</key><string>Mama Kin</string>
+			<key>Artist</key><string>Aerosmith</string>
+			<key>Album</key><string>O, Yeah! Ultimate Aerosmith Hits (Disc 1)</string>
+			<key>Genre</key><string>Hard Rock</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Location</key><string>file:///Users/Username/Music/iTunes/iTunes%20Music/Aerosmith/O,%20Yeah!%20Ultimate%20Aerosmith%20Hits%20(Disc%201)/01%20Mama%20Kin.mp3</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

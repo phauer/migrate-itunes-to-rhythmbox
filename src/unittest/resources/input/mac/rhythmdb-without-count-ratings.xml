@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="yes"?>
+<rhythmdb version="2.0">
+  <entry type="song">
+    <title>Mama Kin</title>
+    <genre>Hard Rock</genre>
+    <artist>Aerosmith</artist>
+    <album>O, Yeah! Ultimate Aerosmith Hits (Disc 1)</album>
+    <track-number>1</track-number>
+    <duration>266</duration>
+    <file-size>6391309</file-size>
+    <location>file:///home/Username/Music/iTunes/iTunes%20Music/Aerosmith/O,%20Yeah!%20Ultimate%20Aerosmith%20Hits%20(Disc%201)/01%20Mama%20Kin.mp3</location>
+    <mtime>1141488170</mtime>
+    <first-seen>1479865234</first-seen>
+    <last-seen>1479867287</last-seen>
+    <bitrate>191</bitrate>
+    <date>0</date>
+    <media-type>audio/mpeg</media-type>
+    <composer>Unknown</composer>
+  </entry>
+</rhythmdb>

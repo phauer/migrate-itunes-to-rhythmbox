@@ -22,33 +22,58 @@ class CounterIntegrationTest(unittest.TestCase):
         self.set_values_and_compare(rhythmdb_without_cout_rating=settings.TEST_RESOURCES_FOLDER.joinpath("input", "count_rating", "rhythmdb-without-count-ratings-one-track-missing.xml"),
                                     itunes_library_path=settings.TEST_RESOURCES_FOLDER.joinpath("input", "count_rating", "itunes-library-with-count-rating.xml"),
                                     expected_rhythmboxdb=settings.TEST_RESOURCES_FOLDER.joinpath("expected_output", "rhythmdb-count-ratings-one-track-missing.xml"),
-                                    output_file_name="happy_path.xml")
+                                    output_file_name="happy_path.xml",
+                                    assert_something_was_changed=True)
 
     def test_itunes_track_missing_in_rhythmdb(self):
         self.set_values_and_compare(rhythmdb_without_cout_rating=settings.TEST_RESOURCES_FOLDER.joinpath("input", "count_rating", "rhythmdb-without-count-ratings.xml"),
                                     itunes_library_path=settings.TEST_RESOURCES_FOLDER.joinpath("input", "count_rating", "itunes-library-with-count-rating.xml"),
                                     expected_rhythmboxdb=settings.TEST_RESOURCES_FOLDER.joinpath("expected_output", "rhythmdb-count-ratings.xml"),
-                                    output_file_name="itunes_track_missing_in_rhythmdb.xml")
+                                    output_file_name="itunes_track_missing_in_rhythmdb.xml",
+                                    assert_something_was_changed=True)
 
     def test_itunes_tracks_without_file_location(self):
         # no exception and nothing should be changed
         arbitary_rhythmdb = settings.TEST_RESOURCES_FOLDER.joinpath("input", "count_rating", "rhythmdb-without-count-ratings.xml")
-        log = self.set_values_and_compare(
+        self.set_values_and_compare(
                                     rhythmdb_without_cout_rating=arbitary_rhythmdb,
                                     itunes_library_path=settings.TEST_RESOURCES_FOLDER.joinpath("input", "bug", "itunes-library-without-file-location.xml"),
                                     expected_rhythmboxdb=arbitary_rhythmdb,
-                                    output_file_name="itunes_tracks_without_file_location.xml")
-        self.assertFalse(log.something_was_changed())
+                                    output_file_name="itunes_tracks_without_file_location.xml",
+                                    assert_something_was_changed=False)
 
-    def set_values_and_compare(self, rhythmdb_without_cout_rating: Path, itunes_library_path: Path, expected_rhythmboxdb:Path, output_file_name: str) -> IntegrationLog:
+    # on a mac, the song path in the itunes.xml is different. they don't contain the "localhost" at the start.
+    def test_different_path_on_mac(self):
+        self.set_values_and_compare(rhythmdb_without_cout_rating=settings.TEST_RESOURCES_FOLDER.joinpath("input", "mac", "rhythmdb-without-count-ratings.xml"),
+                                    itunes_library_path=settings.TEST_RESOURCES_FOLDER.joinpath("input", "mac", "itunes-library-with-count-rating.xml"),
+                                    expected_rhythmboxdb=settings.TEST_RESOURCES_FOLDER.joinpath("expected_output", "rhythmdb-count-ratings-mac.xml"),
+                                    output_file_name="different_path_on_mac.xml",
+                                    assert_something_was_changed=True,
+                                    itunes_library_root="/Users/Username/Music/iTunes/iTunes%20Music/",
+                                    rhythmbox_library_root="/home/Username/Music/iTunes/iTunes%20Music/")
+
+    def set_values_and_compare(self, rhythmdb_without_cout_rating: Path,
+                               itunes_library_path: Path,
+                               expected_rhythmboxdb:Path,
+                               output_file_name: str,
+                               assert_something_was_changed: bool,
+                               itunes_library_root: str="D:/Music/",
+                               rhythmbox_library_root: str="/home/pha/Music/") -> IntegrationLog:
         target_rhythmdb = self.target_folder.joinpath(output_file_name)
         rhythmdb_without_cout_rating.copy(target_rhythmdb)
         itunes_library = str(itunes_library_path)
         songs = itunes_library_reader.read_songs(itunes_library)
         log = rhythmbox_count_rating_integrator.set_values(itunes_songs=songs,
-                                                     target_rhythmdb=target_rhythmdb,
-                                                     itunes_library_root="D:/Music/",
-                                                     rhythmbox_library_root="/home/pha/Music/")
+                                                         target_rhythmdb=target_rhythmdb,
+                                                         itunes_library_root=itunes_library_root,
+                                                         rhythmbox_library_root=rhythmbox_library_root)
+        print("Expect something has changed: {}".format(assert_something_was_changed))
+        if assert_something_was_changed:
+            self.assertTrue(log.something_was_changed(), "No song entries was changed! But they should be!")
+        else:
+            self.assertFalse(log.something_was_changed(), "A song entries was changed! But they shouldn't be!")
+
+        print("Compare content of {} (actual) with {} (expected)".format(target_rhythmdb, expected_rhythmboxdb))
         with expected_rhythmboxdb.open(mode="r", encoding="UTF-8") as expected_rhythmboxdb_opened, target_rhythmdb.open(
                 "r") as target_rhythmdb_opened:
             actual_playlist_xml = target_rhythmdb_opened.read()
@@ -92,6 +117,27 @@ class CounterUnitTest(unittest.TestCase):
         expected_song_entry = '<entry type="song"/>'
 
         self.assertEqual(expected_song_entry, actual_song_entry)
+
+
+    def test_create_canonical_location(self):
+        # on windows, there is a "localhost" in the itunes path
+        self.assert_canonical_locations_are_equal(itunes_path="file://localhost/D:/Music/O.A.R/Live%20On%20Red%20Rocks%20(CD1)/1-03%20Shattered%20(Turn%20The%20Car%20Around).mp3",
+                                                  itunes_library_root="D:/Music/",
+                                                  rhythmbox_path="file:///home/pha/Music/O.A.R/Live%20On%20Red%20Rocks%20(CD1)/1-03%20Shattered%20(Turn%20The%20Car%20Around).mp3",
+                                                  rhythmbox_library_root="/home/pha/Music/")
+        # on mac, there is no "localhost" in the itunes path
+        self.assert_canonical_locations_are_equal(itunes_path="file:///Users/Username/Music/iTunes/iTunes%20Music/Aerosmith/O,%20Yeah!%20Ultimate%20Aerosmith%20Hits%20(Disc%201)/01%20Mama%20Kin.mp3",
+                                                  itunes_library_root="/Users/Username/Music/iTunes/iTunes%20Music/",
+                                                  rhythmbox_path="file:///home/Username/Music/iTunes/iTunes%20Music/Aerosmith/O,%20Yeah!%20Ultimate%20Aerosmith%20Hits%20(Disc%201)/01%20Mama%20Kin.mp3",
+                                                  rhythmbox_library_root="/home/Username/Music/iTunes/iTunes%20Music/")
+
+    def assert_canonical_locations_are_equal(self, itunes_path: str,
+                                             itunes_library_root: str,
+                                             rhythmbox_path: str,
+                                             rhythmbox_library_root: str):
+        location1 = rhythmbox_count_rating_integrator.create_canonical_location_for_itunes_location(itunes_location=itunes_path, itunes_library_root=itunes_library_root)
+        location2 = rhythmbox_count_rating_integrator.create_canonical_location_for_rhythmbox(rhythmbox_location=rhythmbox_path, rhythmbox_library_root=rhythmbox_library_root)
+        self.assertEqual(location1, location2)
 
 if __name__ == '__main__':
     unittest.main()

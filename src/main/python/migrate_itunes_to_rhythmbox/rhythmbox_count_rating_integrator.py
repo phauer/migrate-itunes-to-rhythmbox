@@ -45,7 +45,7 @@ def integrate_statistics_into_rhythmdb(root, itunes_statistics_dict: Dict[str, S
     rhythmdb_song_entries = root.getchildren()
     for rhythmdb_song_entry in rhythmdb_song_entries:
         location = rhythmdb_song_entry.find("location").text
-        canonical_location = location.replace("file://{}".format(rhythmbox_library_root), "")
+        canonical_location = create_canonical_location_for_rhythmbox(location, rhythmbox_library_root)
         if canonical_location in itunes_statistics_dict:
             itunes_statistics = itunes_statistics_dict[canonical_location]
             integrate_statistics_into_entry(itunes_statistics, rhythmdb_song_entry)
@@ -81,10 +81,32 @@ def create_itunes_statistic_dict(itunes_songs: Dict[int, Song], itunes_library_r
             itunes_rating = itunes_song.rating
             mapped_rating = ITUNES_TO_RHYTHMBOX_RATINGS_MAP[itunes_rating]
             location = itunes_song.location_escaped
-            canonical_location = location.replace("file://localhost/{}".format(itunes_library_root), "")
+            canonical_location = create_canonical_location_for_itunes_location(location, itunes_library_root)
             dict[canonical_location] = SongStatistic(count, mapped_rating, last_played_timestamp)
         else:
             print("   Can't assign the track [{} - {}] because there is no file location defined. It's probably a remote file."
                   .format(itunes_song.artist, itunes_song.name))
     return dict
 
+PREFIX_ITUNES_ON_WINDOWS = "file://localhost/"
+PREFIX_ITUNES_ON_MAC = "file://"
+PREFIX_RHYTHMBOX = "file://"
+
+
+def create_canonical_location_for_itunes_location(itunes_location: str, itunes_library_root: str):
+    # don't mix up order
+    if itunes_location.startswith(PREFIX_ITUNES_ON_WINDOWS):
+        return itunes_location.replace(PREFIX_ITUNES_ON_WINDOWS + itunes_library_root, "")
+    if itunes_location.startswith(PREFIX_ITUNES_ON_MAC):
+        return itunes_location.replace(PREFIX_ITUNES_ON_MAC + itunes_library_root, "")
+    print("""   The itunes location {} doesn't start with a known prefix.
+    It's likely that we can't match it later to a rhythmbox path.""".format(itunes_location))
+    return itunes_location
+
+
+def create_canonical_location_for_rhythmbox(rhythmbox_location: str, rhythmbox_library_root: str):
+    if rhythmbox_location.startswith(PREFIX_RHYTHMBOX):
+        return rhythmbox_location.replace(PREFIX_RHYTHMBOX + rhythmbox_library_root, "")
+    print("""   The rhythmbox location {} doesn't start with a known prefix.
+    It's likely that we can't match it later to a itunes path.""".format(rhythmbox_location))
+    return rhythmbox_location
