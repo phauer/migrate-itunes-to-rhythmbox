@@ -8,6 +8,8 @@ Tested with:
 - iTunes 12.5.1
 - Rhythmbox 3.3, 3.4
 
+Does the script work with a newer version of iTunes or Rhythmbox? Please let me know by opening an issue. 
+
 ## Installation
 You need at least Python 3.5! Check it via `$ python3 --version`
 
