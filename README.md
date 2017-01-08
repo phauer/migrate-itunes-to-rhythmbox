@@ -14,20 +14,20 @@ Does the script work with a newer version of iTunes or Rhythmbox? Please let me 
 You need at least Python 3.5! Check it via `$ python3 --version`
 
 Install pip if you haven't already.
-```
-$ sudo apt install python3-pip 
+```bash
+sudo apt install python3-pip 
 ```
 Install _migrate-itunes-to-rhythmbox_
-```
-$ pip3 install https://github.com/phauer/migrate-itunes-to-rhythmbox/releases/download/1.0.3/migrate-itunes-to-rhythmbox-1.0.3.tar.gz --process-dependency-links --user
+```bash
+pip3 install https://github.com/phauer/migrate-itunes-to-rhythmbox/releases/download/1.0.3/migrate-itunes-to-rhythmbox-1.0.3.tar.gz --process-dependency-links --user
 ```
 The script is now installed to `.local/bin/migrate-itunes-to-rhythmbox`. You may want to add `~/.local/bin` to your $PATH:
-```
-$ echo 'export PATH=~/.local/bin:$PATH' >> ~/.profile 
+```bash
+echo 'export PATH=~/.local/bin:$PATH' >> ~/.profile 
 ```
 Log out and in again. Afterwards, you can call the script via:
-```
-$ migrate-itunes-to-rhythmbox --help
+```bash
+migrate-itunes-to-rhythmbox --help
 ```
 ## Usage
 
@@ -67,11 +67,11 @@ Options:
 
 #### Examples
 
-```
-$ migrate-itunes-to-rhythmbox playlists --help
+```bash
+migrate-itunes-to-rhythmbox playlists --help
 
 # example:
-$ migrate-itunes-to-rhythmbox playlists \
+migrate-itunes-to-rhythmbox playlists \
     --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" \
     --rhythmbox_playlists_xml="~/.local/share/rhythmbox/playlists.xml" \
     --source_library_root="D:/Music/" \
@@ -85,7 +85,7 @@ migrate-itunes-to-rhythmbox playlists \
     --target_library_root="/home/(username)/Music/"
 
 # Use relative paths. Assumes that the "iTunes Library.xml" is in current directory and "rhythmbox-playlists.xml" will also placed there.
-$ migrate-itunes-to-rhythmbox playlists \
+migrate-itunes-to-rhythmbox playlists \
     --itunes_library_xml="iTunes Library.xml" \
     --rhythmbox_playlists_xml="rhythmbox-playlists.xml" \
     --source_library_root="D:/Music/" \
@@ -131,10 +131,10 @@ Options:
 ```
 
 Examples:
-```
-$ migrate-itunes-to-rhythmbox counts-ratings --help
+```bash
+migrate-itunes-to-rhythmbox counts-ratings --help
 
-$ migrate-itunes-to-rhythmbox counts-ratings \
+migrate-itunes-to-rhythmbox counts-ratings \
     --itunes_library_xml="~/Music/iTunes/iTunes Music Library.xml" \
     --rhythmdb="~/.local/share/rhythmbox/rhythmdb.xml" \
     --source_library_root="D:/Music/" \
@@ -142,8 +142,8 @@ $ migrate-itunes-to-rhythmbox counts-ratings \
 ```
 
 ## Deinstallation
-```
-$ pip3 uninstall migrate-itunes-to-rhythmbox
+```bash
+pip3 uninstall migrate-itunes-to-rhythmbox
 ```
 
 # Development
@@ -152,32 +152,32 @@ $ pip3 uninstall migrate-itunes-to-rhythmbox
 The script requires Python 3.5.
 
 Install pip and venv if you haven't already.
-```
-$ sudo apt install python3-pip python3-venv
+```bash
+sudo apt install python3-pip python3-venv
 ```
 
 Project Setup:
-```
+```bash
 # git clone and move to project directory
-$ pyvenv venv
-$ source init.sh # inits venv and sets PYTHONPATH
-$ pip install pybuilder
-$ pyb # install dependencies, runs tests and builds the project
+pyvenv venv
+source init.sh # inits venv and sets PYTHONPATH
+pip install pybuilder
+pyb # install dependencies, runs tests and builds the project
 # ...
-$ deactivate # deactivates venv
+deactivate # deactivates venv
 ```
 
 Execution: You can either execute via your IDE or via the shell:
-```
-$ .init.sh # inits venv and sets PYTHONPATH
+```bash
+.init.sh # inits venv and sets PYTHONPATH
 
 # CLI 
-$ cd src/main/scripts
-$ ./migrate-itunes-to-rhythmbox --help
+cd src/main/scripts
+./migrate-itunes-to-rhythmbox --help
 
 # Tests
-$ cd src/unittest/python
-$ python3 integraton_tests.py
+cd src/unittest/python
+python3 integraton_tests.py
 ```
 
 ### Setting up IntelliJ IDEA/PyCharm
