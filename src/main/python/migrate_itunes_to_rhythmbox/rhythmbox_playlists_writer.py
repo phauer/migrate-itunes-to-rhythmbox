@@ -1,5 +1,5 @@
 from lxml import etree
-from pyItunes import Playlist, Song
+from libpytunes import Playlist, Song
 from typing import List, Dict
 from pathlib import Path
 from migrate_itunes_to_rhythmbox.transform import transform_to_rhythmbox_path

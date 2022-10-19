@@ -1,4 +1,4 @@
-from pyItunes import Song
+from libpytunes import Song
 from typing import List, Dict
 from pathlib import Path
 import lxml.etree
