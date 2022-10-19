@@ -81,6 +81,9 @@ def create_itunes_statistic_dict(itunes_songs: Dict[int, Song], itunes_library_r
             last_played = itunes_song.lastplayed
             last_played_timestamp = calendar.timegm(last_played) if last_played is not None else None
             date_added = itunes_song.date_added
+            date_modified = itunes_song.date_modified
+            if date_modified < date_added:
+                date_added = date_modified #somehow I messed up the timestamps on my library back in 2011
             date_added_timestamp = calendar.timegm(date_added) if date_added is not None else None
             itunes_rating = itunes_song.rating
             mapped_rating = ITUNES_TO_RHYTHMBOX_RATINGS_MAP[itunes_rating]
