@@ -1,6 +1,6 @@
 from pyItunes import Song
 from typing import List, Dict
-from path import Path
+from pathlib import Path
 import lxml.etree
 from migrate_itunes_to_rhythmbox import common
 from time import struct_time

@@ -1,6 +1,6 @@
 import unittest
 
-from path import Path
+from pathlib import Path
 
 from migrate_itunes_to_rhythmbox import itunes_library_reader, rhythmbox_playlists_writer, settings
 
