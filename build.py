@@ -19,7 +19,7 @@ url = "https://github.com/phauer/migrate-itunes-to-rhythmbox"
 def set_properties(project):
     project.depends_on_requirements("requirements.txt")
     project.build_depends_on_requirements("requirements-build.txt")
-    project.depends_on("pyItunes", url="git+https://github.com/phauer/pyitunes.git#egg=pyItunes-1.4")  # use my fork to ensure stability
+    #project.depends_on("libpytunes", url="git+https://github.com/phauer/pyitunes.git#egg=pyItunes-1.4")  # use my fork to ensure stability
     project.set_property('distutils_classifiers', [
         'Topic :: Multimedia :: Sound/Audio :: Conversion',
         'Intended Audience :: Information Technology',

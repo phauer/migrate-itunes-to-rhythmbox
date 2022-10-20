@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from os.path import expanduser
 import click
-from path import Path
+from pathlib import Path
 from migrate_itunes_to_rhythmbox import itunes_library_reader, rhythmbox_playlists_writer, rhythmbox_count_rating_integrator, settings
 
 

@@ -1,4 +1,4 @@
-from pyItunes import Library, Playlist, Song
+from libpytunes import Library, Playlist, Song
 from typing import List, Dict
 
 english_german_ignore_list = ("Library", "Music", "Movies", "TV Shows", "Purchased", "iTunes DJ", "Podcasts",

@@ -1,6 +1,6 @@
 import unittest
 from lxml import etree
-from path import Path
+from pathlib import Path
 from migrate_itunes_to_rhythmbox import itunes_library_reader, rhythmbox_count_rating_integrator, settings
 from migrate_itunes_to_rhythmbox.rhythmbox_count_rating_integrator import SongStatistic, IntegrationLog
 
