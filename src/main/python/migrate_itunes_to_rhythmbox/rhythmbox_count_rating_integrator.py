@@ -3,19 +3,25 @@ from typing import List, Dict
 from path import Path
 import lxml.etree
 from migrate_itunes_to_rhythmbox import common
+from migrate_itunes_to_rhythmbox.transform import transform_to_rhythmbox_path
 from time import struct_time
 import calendar
 
+
 # different rating scales. itunes: 0 (no star) - 100 (5 stars). rhythmbox: 0-5.
-ITUNES_TO_RHYTHMBOX_RATINGS_MAP = {0: 0, 20: 1, 40: 2, 60: 3, 80: 4, 100: 5, None: None}
+ITUNES_TO_RHYTHMBOX_RATINGS_MAP = {
+    0: 0, 20: 1, 40: 2, 60: 3, 80: 4, 100: 5,
+    None: None,
+    1: 0,  # Probably from a Doug's script to remove album ratings that I ran at some point
+}
 
 
 class SongStatistic:
-    def __init__(self, play_count: int, rating: int, last_played_timestamp: str):
+    def __init__(self, play_count: int, rating: int, last_played_timestamp: str, date_added_timestamp: str):
         self.play_count = play_count
         self.rating = rating
         self.last_played_timestamp = last_played_timestamp
-
+        self.date_added_timestamp = date_added_timestamp
 
 class IntegrationLog:
     def __init__(self):
@@ -29,7 +35,7 @@ class IntegrationLog:
 
 
 def set_values(itunes_songs: Dict[int, Song], target_rhythmdb: Path, itunes_library_root: str, rhythmbox_library_root: str) -> IntegrationLog:
-    itunes_statistics_dict = create_itunes_statistic_dict(itunes_songs, itunes_library_root)
+    itunes_statistics_dict = create_itunes_statistic_dict(itunes_songs, itunes_library_root, rhythmbox_library_root)
 
     rhythmdb = lxml.etree.parse(target_rhythmdb)
     root = rhythmdb.getroot()
@@ -57,7 +63,7 @@ def integrate_statistics_into_entry(itunes_statistics, rhythmdb_song_entry):
     integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, "play-count", itunes_statistics.play_count)
     integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, "rating", itunes_statistics.rating)
     integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, "last-played", itunes_statistics.last_played_timestamp)
-
+    integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, "first-seen", itunes_statistics.date_added_timestamp)
 
 def integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, rhythmdb_node_name, itunes_value):
     rhythmdb_value_node = rhythmdb_song_entry.find(rhythmdb_node_name)
@@ -70,7 +76,7 @@ def integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, rhythmdb_node_na
         rhythmdb_value_node.text = str(itunes_value)
 
 
-def create_itunes_statistic_dict(itunes_songs: Dict[int, Song], itunes_library_root: str) -> Dict[str, SongStatistic]:
+def create_itunes_statistic_dict(itunes_songs: Dict[int, Song], itunes_library_root: str, rhythmbox_library_root: str) -> Dict[str, SongStatistic]:
     """use canonical location as a common identifier. returns dict[canonical_location -> SongStatistic(play_count, rating)]"""
     dict = {}
     for itunes_song in itunes_songs.values():
@@ -78,11 +84,31 @@ def create_itunes_statistic_dict(itunes_songs: Dict[int, Song], itunes_library_r
             count = itunes_song.play_count
             last_played = itunes_song.lastplayed
             last_played_timestamp = calendar.timegm(last_played) if last_played is not None else None
+            date_added = itunes_song.date_added
+            date_modified = itunes_song.date_modified
+            if date_modified < date_added:
+                date_added = date_modified #somehow I messed up the timestamps on my library back in 2011
+            date_added_timestamp = calendar.timegm(date_added) if date_added is not None else None
+
             itunes_rating = itunes_song.rating
-            mapped_rating = ITUNES_TO_RHYTHMBOX_RATINGS_MAP[itunes_rating]
+            try:
+                mapped_rating = ITUNES_TO_RHYTHMBOX_RATINGS_MAP[itunes_rating]
+            except KeyError:
+                print(f"Song {itunes_song.name} has invalid rating {itunes_rating}. Ignoring.")
+                mapped_rating = None
+
+            album_rating = itunes_song.album_rating
+            if (mapped_rating and mapped_rating > 0 and
+                album_rating and album_rating > 1 and
+                itunes_rating == album_rating
+            ):
+                # This may (or may not, we have no way to tell) be one of those stupid "album ratings" that iTunes is setting to every song of a given album
+                # See https://discussions.apple.com/thread/254718505?sortBy=best
+                print(f"  Please manually review rating for song {itunes_song.location}, that may be an 'automatic rating from album'")
+
             location = itunes_song.location_escaped
-            canonical_location = create_canonical_location_for_itunes_location(location, itunes_library_root)
-            dict[canonical_location] = SongStatistic(count, mapped_rating, last_played_timestamp)
+            canonical_location = create_canonical_location_for_itunes_location(location, itunes_library_root, rhythmbox_library_root)
+            dict[canonical_location] = SongStatistic(count, mapped_rating, last_played_timestamp, date_added_timestamp)
         else:
             print("   Can't assign the track [{} - {}] because there is no file location defined. It's probably a remote file."
                   .format(itunes_song.artist, itunes_song.name))
@@ -93,20 +119,33 @@ PREFIX_ITUNES_ON_MAC = "file://"
 PREFIX_RHYTHMBOX = "file://"
 
 
-def create_canonical_location_for_itunes_location(itunes_location: str, itunes_library_root: str):
-    # don't mix up order
-    if itunes_location.startswith(PREFIX_ITUNES_ON_WINDOWS):
-        return itunes_location.replace(PREFIX_ITUNES_ON_WINDOWS + itunes_library_root, "")
-    if itunes_location.startswith(PREFIX_ITUNES_ON_MAC):
-        return itunes_location.replace(PREFIX_ITUNES_ON_MAC + itunes_library_root, "")
+def create_canonical_location_for_itunes_location(itunes_location: str, itunes_library_root: str, rhythmbox_library_root: str):
+    """
+    Turns (e.g.) file://localhost/C:/Users/John/Music/iTunes/iTunes%20Media/ARTIST/song.MP3
+    into Artist/Song.mp3
+    """
+
+    if itunes_location.startswith("http"):
+        return itunes_location
+
+    transformed = transform_to_rhythmbox_path(itunes_location, rhythmbox_library_root, itunes_library_root)
+
+    if transformed.startswith(PREFIX_RHYTHMBOX):
+        return transformed.replace(PREFIX_RHYTHMBOX + rhythmbox_library_root, "")
     print("""   The itunes location {} doesn't start with a known prefix.
-    It's likely that we can't match it later to a rhythmbox path.""".format(itunes_location))
-    return itunes_location
+    It's likely that we can't match it later to a rhythmbox path.""".format(transformed))
+    return transformed
 
 
 def create_canonical_location_for_rhythmbox(rhythmbox_location: str, rhythmbox_library_root: str):
+    """
+    Turns (e.g.) file:///home/user/Music/Songs/Air/Moon%20Safari/06%20Remember.mp3
+    into         Air/Moon%20Safari/06%20Remember.mp3
+    """
+
     if rhythmbox_location.startswith(PREFIX_RHYTHMBOX):
         return rhythmbox_location.replace(PREFIX_RHYTHMBOX + rhythmbox_library_root, "")
     print("""   The rhythmbox location {} doesn't start with a known prefix.
     It's likely that we can't match it later to a itunes path.""".format(rhythmbox_location))
+
     return rhythmbox_location

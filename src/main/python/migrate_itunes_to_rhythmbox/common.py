@@ -1,5 +1,5 @@
 from lxml import etree
-from path import Path
+from pathlib import Path
 
 
 def get_xml_declaration(add_standalone_to_xml_declaration: bool):
