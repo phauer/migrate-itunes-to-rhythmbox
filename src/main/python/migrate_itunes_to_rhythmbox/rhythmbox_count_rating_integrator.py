@@ -1,14 +1,19 @@
-from libpytunes import Song
+from pyItunes import Song
 from typing import List, Dict
-from pathlib import Path
+from path import Path
 import lxml.etree
 from migrate_itunes_to_rhythmbox import common
 from migrate_itunes_to_rhythmbox.transform import transform_to_rhythmbox_path
 from time import struct_time
 import calendar
 
+
 # different rating scales. itunes: 0 (no star) - 100 (5 stars). rhythmbox: 0-5.
-ITUNES_TO_RHYTHMBOX_RATINGS_MAP = {0: 0, 20: 1, 40: 2, 60: 3, 80: 4, 100: 5, None: None}
+ITUNES_TO_RHYTHMBOX_RATINGS_MAP = {
+    0: 0, 20: 1, 40: 2, 60: 3, 80: 4, 100: 5,
+    None: None,
+    1: 0,  # Probably from a Doug's script to remove album ratings that I ran at some point
+}
 
 
 class SongStatistic:
@@ -17,7 +22,6 @@ class SongStatistic:
         self.rating = rating
         self.last_played_timestamp = last_played_timestamp
         self.date_added_timestamp = date_added_timestamp
-
 
 class IntegrationLog:
     def __init__(self):
@@ -61,7 +65,6 @@ def integrate_statistics_into_entry(itunes_statistics, rhythmdb_song_entry):
     integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, "last-played", itunes_statistics.last_played_timestamp)
     integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, "first-seen", itunes_statistics.date_added_timestamp)
 
-
 def integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, rhythmdb_node_name, itunes_value):
     rhythmdb_value_node = rhythmdb_song_entry.find(rhythmdb_node_name)
     if itunes_value is None and rhythmdb_value_node is not None:
@@ -86,8 +89,23 @@ def create_itunes_statistic_dict(itunes_songs: Dict[int, Song], itunes_library_r
             if date_modified < date_added:
                 date_added = date_modified #somehow I messed up the timestamps on my library back in 2011
             date_added_timestamp = calendar.timegm(date_added) if date_added is not None else None
+
             itunes_rating = itunes_song.rating
-            mapped_rating = ITUNES_TO_RHYTHMBOX_RATINGS_MAP[itunes_rating]
+            try:
+                mapped_rating = ITUNES_TO_RHYTHMBOX_RATINGS_MAP[itunes_rating]
+            except KeyError:
+                print(f"Song {itunes_song.name} has invalid rating {itunes_rating}. Ignoring.")
+                mapped_rating = None
+
+            album_rating = itunes_song.album_rating
+            if (mapped_rating and mapped_rating > 0 and
+                album_rating and album_rating > 1 and
+                itunes_rating == album_rating
+            ):
+                # This may (or may not, we have no way to tell) be one of those stupid "album ratings" that iTunes is setting to every song of a given album
+                # See https://discussions.apple.com/thread/254718505?sortBy=best
+                print(f"  Please manually review rating for song {itunes_song.location}, that may be an 'automatic rating from album'")
+
             location = itunes_song.location_escaped
             canonical_location = create_canonical_location_for_itunes_location(location, itunes_library_root, rhythmbox_library_root)
             dict[canonical_location] = SongStatistic(count, mapped_rating, last_played_timestamp, date_added_timestamp)
@@ -129,4 +147,5 @@ def create_canonical_location_for_rhythmbox(rhythmbox_location: str, rhythmbox_l
         return rhythmbox_location.replace(PREFIX_RHYTHMBOX + rhythmbox_library_root, "")
     print("""   The rhythmbox location {} doesn't start with a known prefix.
     It's likely that we can't match it later to a itunes path.""".format(rhythmbox_location))
+
     return rhythmbox_location
