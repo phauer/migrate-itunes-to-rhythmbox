@@ -3,6 +3,7 @@ from typing import List, Dict
 from pathlib import Path
 import lxml.etree
 from migrate_itunes_to_rhythmbox import common
+from migrate_itunes_to_rhythmbox.transform import transform_to_rhythmbox_path
 from time import struct_time
 import calendar
 
@@ -30,7 +31,7 @@ class IntegrationLog:
 
 
 def set_values(itunes_songs: Dict[int, Song], target_rhythmdb: Path, itunes_library_root: str, rhythmbox_library_root: str) -> IntegrationLog:
-    itunes_statistics_dict = create_itunes_statistic_dict(itunes_songs, itunes_library_root)
+    itunes_statistics_dict = create_itunes_statistic_dict(itunes_songs, itunes_library_root, rhythmbox_library_root)
 
     rhythmdb = lxml.etree.parse(target_rhythmdb)
     root = rhythmdb.getroot()
@@ -72,7 +73,7 @@ def integrate_value_to_rhythmdb_song_entry(rhythmdb_song_entry, rhythmdb_node_na
         rhythmdb_value_node.text = str(itunes_value)
 
 
-def create_itunes_statistic_dict(itunes_songs: Dict[int, Song], itunes_library_root: str) -> Dict[str, SongStatistic]:
+def create_itunes_statistic_dict(itunes_songs: Dict[int, Song], itunes_library_root: str, rhythmbox_library_root: str) -> Dict[str, SongStatistic]:
     """use canonical location as a common identifier. returns dict[canonical_location -> SongStatistic(play_count, rating)]"""
     dict = {}
     for itunes_song in itunes_songs.values():
@@ -88,7 +89,7 @@ def create_itunes_statistic_dict(itunes_songs: Dict[int, Song], itunes_library_r
             itunes_rating = itunes_song.rating
             mapped_rating = ITUNES_TO_RHYTHMBOX_RATINGS_MAP[itunes_rating]
             location = itunes_song.location_escaped
-            canonical_location = create_canonical_location_for_itunes_location(location, itunes_library_root)
+            canonical_location = create_canonical_location_for_itunes_location(location, itunes_library_root, rhythmbox_library_root)
             dict[canonical_location] = SongStatistic(count, mapped_rating, last_played_timestamp, date_added_timestamp)
         else:
             print("   Can't assign the track [{} - {}] because there is no file location defined. It's probably a remote file."
@@ -100,18 +101,30 @@ PREFIX_ITUNES_ON_MAC = "file://"
 PREFIX_RHYTHMBOX = "file://"
 
 
-def create_canonical_location_for_itunes_location(itunes_location: str, itunes_library_root: str):
-    # don't mix up order
-    if itunes_location.startswith(PREFIX_ITUNES_ON_WINDOWS):
-        return itunes_location.replace(PREFIX_ITUNES_ON_WINDOWS + itunes_library_root, "")
-    if itunes_location.startswith(PREFIX_ITUNES_ON_MAC):
-        return itunes_location.replace(PREFIX_ITUNES_ON_MAC + itunes_library_root, "")
+def create_canonical_location_for_itunes_location(itunes_location: str, itunes_library_root: str, rhythmbox_library_root: str):
+    """
+    Turns (e.g.) file://localhost/C:/Users/John/Music/iTunes/iTunes%20Media/ARTIST/song.MP3
+    into Artist/Song.mp3
+    """
+
+    if itunes_location.startswith("http"):
+        return itunes_location
+
+    transformed = transform_to_rhythmbox_path(itunes_location, rhythmbox_library_root, itunes_library_root)
+
+    if transformed.startswith(PREFIX_RHYTHMBOX):
+        return transformed.replace(PREFIX_RHYTHMBOX + rhythmbox_library_root, "")
     print("""   The itunes location {} doesn't start with a known prefix.
-    It's likely that we can't match it later to a rhythmbox path.""".format(itunes_location))
-    return itunes_location
+    It's likely that we can't match it later to a rhythmbox path.""".format(transformed))
+    return transformed
 
 
 def create_canonical_location_for_rhythmbox(rhythmbox_location: str, rhythmbox_library_root: str):
+    """
+    Turns (e.g.) file:///home/user/Music/Songs/Air/Moon%20Safari/06%20Remember.mp3
+    into         Air/Moon%20Safari/06%20Remember.mp3
+    """
+
     if rhythmbox_location.startswith(PREFIX_RHYTHMBOX):
         return rhythmbox_location.replace(PREFIX_RHYTHMBOX + rhythmbox_library_root, "")
     print("""   The rhythmbox location {} doesn't start with a known prefix.
